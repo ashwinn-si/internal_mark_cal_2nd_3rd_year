@@ -40,7 +40,7 @@ function celebration_effect(){
     setInterval(()=>{
         document.getElementById("congrs-lottie-animation").style.visibility='hidden';
         document.getElementById("congrs-lottie-animation").classList.remove('add_width');
-    },3000);
+    },5000);
 }
 
 document.getElementById("calculate_button").addEventListener('click',()=>{
