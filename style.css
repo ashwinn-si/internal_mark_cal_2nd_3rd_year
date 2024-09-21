@@ -124,3 +124,11 @@ input[type="radio"]:checked{
 #congrs-lottie-animation{
     visibility: hidden;
 }
+.initial_alert_container{
+    background-color: transparent;
+    position: absolute;
+    width: 40%;
+    z-index: 999;
+    top:10%;
+    left: 30%;
+}
