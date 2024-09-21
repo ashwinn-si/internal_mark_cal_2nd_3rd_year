@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2/3 YEAR</title>
+    <!--main style sheet-->
+    <link rel="stylesheet" href="./style.css">
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="./assets/bootstrap/bootstrap.min.css">
+    <!--font style-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container text-center">
+        <p class="header">INTERNAL MARK CALCULATOR<br></p>
+        <div class="container sub-container col-12 col-md-6">
+            <div class="row"><p class="sub_header" style="font-weight: 600;padding-bottom: 0px;">2 & 3 YEAR</p></div>
+            <div class="row with_with_out_bonus_container justify-content-center" style="padding-top: 0px;">
+                <div class="col-2"><input type="radio" name="bonus" value="yes" id="yes_bonus"></div>
+                <div class="col-4" style="font-weight: 500;">WITH BONUS</div>
+                <div class="col-2"><input type="radio" name="bonus" value="no" id="no_bonus"></div>
+                <div class="col-4 " style="font-weight: 500;">WITHOUT BONUS</div>
+            </div>
+            <div class="row mark_container">
+                <div class="col-6" style="font-weight: 500;">Enter mark scored in M1</div>
+                <div class="col-6"><input type="number" id="mark_m1" class="input_box" placeholder="Enter Mark"></div>
+            </div>
+            <div class="row mark_container">
+                <div class="col-6" style="font-weight: 500;">Enter mark scored in M2</div>
+                <div class="col-6"><input type="number" id="mark_m2" class="input_box" placeholder="Enter Mark"></div>
+            </div>
+            <div class="row mark_container">
+                <div class="col-6" style="font-weight: 500;">Enter mark scored in M3</div>
+                <div class="col-6"><input type="number" id="mark_m3" class="input_box" placeholder="Enter Mark"></div>
+            </div>
+            <div class="row extra_activity_container">
+                <div class="col-4" style="font-weight: 500;">NPTEL</div>
+                <div class="col-1"><input type="radio" name="nptel" value="yes" id="nptel_yes"></div>
+                <div class="col-3"><p style="font-weight: 400;">PASS</p></div>
+                <div class="col-1"><input type="radio" name="nptel" value="no" id="nptel_no"></div>
+                <div class="col-3"><p style="font-weight: 400;">FAIL</p></div>
+            </div>
+            <div class="row extra_activity_container">
+                <div class="col-4" style="font-weight: 500;">ONLINE COURSE</div>
+                <div class="col-1"><input type="radio" name="course" value="yes" id="course_yes"></div>
+                <div class="col-3"><p style="font-weight: 400;">DONE</p></div>
+                <div class="col-1"><input type="radio" name="course" value="no" id="course_no"></div>
+                <div class="col-3"><p style="font-weight: 400;">NOT DONE</p></div>
+            </div>
+            <div class="row extra_activity_container">
+                <div class="col-4" style="font-weight: 500;">EXTRA ACTIVITY</div>
+                <div class="col-1"><input type="radio" name="extra" value="yes" id="extra_yes"></div>
+                <div class="col-3"><p style="font-weight: 400;">DONE</p></div>
+                <div class="col-1"><input type="radio" name="extra" value="no" id="extra_no"></div>
+                <div class="col-3"><p style="font-weight: 400;">NOT DONE</p></div>
+            </div>
+            <div class="row justify-content-center "><button  id="calculate_button">CALCULATE</button></div>
+            <div class="row justify-content-center" id="special_case_text"></div>
+            <div class="container result-mark-container col-10 col-md-7">
+            </div>
+        </div>
+    </div>
+    <!--Main js-->
+    <script src="script.js"></script>
+    <!--Bootstrap scripts-->
+    <script src="./assets/bootstrap/jquery.min.js"></script>
+    <script src="./assets/bootstrap/bootstrap.min.js"></script>
+</body>
+</html>

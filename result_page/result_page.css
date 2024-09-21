@@ -1,0 +1,146 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: black;
+    font-family: poppins;
+}
+body{
+    background-color: rgb(232,226,226) !important;
+}
+.container{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.content_box{
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 1);
+    margin: 10px;
+    height: auto;
+    width:500px;
+    padding: 20px;
+    border-radius: 20px;
+    
+}
+.heading{
+    color: black;
+    font-weight: bold;
+    margin-top: 20px;
+    font-size: 3rem;
+    margin: 10px 0;
+    text-align: center;
+}
+.sub_head{
+    font-weight: bold;
+    margin-top: 20px;
+    font-size: 1.5rem;
+    margin: 10px 0;
+    text-align: center;
+    color: #F8D210;
+}
+.mark_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    }
+.mark_container div{
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.mark_container div div{
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin: 5px 0;
+    width: 50%;
+}
+.div1,.div2{
+    color: #333;
+}
+.return{
+    font-weight: bold;
+    padding: 10px;
+    color: black;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 3px;
+    margin: 10px;
+}
+.credits{
+    background: url("images/credit_font.gif") no-repeat;
+    background-size: cover;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+}
+.initial_alert_container{
+    background-color: rgba(255, 255, 255, 0.95);
+    position: absolute;
+    width: 400px;
+    padding: 20px 0;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-transform: uppercase;
+    flex-wrap: wrap;
+    z-index: 999;
+    font-size: 1.2rem;
+    border-radius: 20px;
+    border: solid;
+    border-color: black;
+    padding: 10px;
+}
+.initial_alert_container{
+    visibility: visible;
+}
+.initial_alert_container span{
+    color: blueviolet;
+    font-weight: bold;
+}
+button {
+    background-color: white; 
+      color: black;
+      padding: 10px 20px;
+      border: solid;
+      border-width: 1px;
+      border-color: #000;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1); 
+      transition: box-shadow 0.5s ease, transform 0.5s ease; /
+}
+button:hover {
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.15); /* Slightly deeper shadow on hover */
+    transform: translateY(-2px); /* Moves button up slightly */
+}
+button:active {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow on button press */
+    transform: translateY(0); /* Resets the button position */
+}
+@media (max-width: 768px) {
+    .heading{
+        font-size: 2rem;
+    }
+    .sub_head{
+        font-size: 1.5rem;
+    }
+    .mark_container div .div1{
+        font-size: 1rem;
+    }
+    .mark_container div .div2{
+        font-size: 1rem;
+    }
+}

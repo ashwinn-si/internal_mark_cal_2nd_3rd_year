@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RESULT PAGE</title>
+    <link href="result_page.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="initial_alert_container" id="initial_alert_container">
+            <p> Due to the <span>relative grading system</span> in our college, it is <span>not possible to predict the exact GRADE</span> as it depends on the highest mark achieved by a student.<br>The <span>Possible marks</span> are displayed below.</p>
+            <button id="initial_pop_up_return_button" onclick="document.getElementById('initial_alert_container').style.visibility='hidden'">continue</button>
+        </div>
+        <div class="content_box">
+            <p class="heading">POSSIBLE MARKS</p>
+            <p class="sub_head"></p>
+            <div class="mark_container">
+                <div>
+                <div class="div1"> EXTERNAL MARK<br>(OUTOFF 100)</div>
+                <div class="div2">TOTAL MARK<br>(INT MARK + EXT MARK) </div>
+                </div>
+                <div>
+                    <div class="div3">100 </div>
+                    <div class="div4"> </div>
+                </div>
+                <div>
+                    <div class="div5">90</div>
+                    <div class="div6"> </div>
+                </div>
+                <div>
+                    <div class="div7">80</div>
+                    <div class="div8"> </div>
+                </div>
+
+                <div>
+                    <div class="div9">70</div>
+                    <div class="div10"> </div>
+                </div>
+                <div>
+                    <div class="div11">60</div>
+                    <div class="div12"> </div>
+                </div>
+
+                <div>
+                    <div class="div13">50</div>
+                    <div class="div14"> </div>
+                </div>
+                <div>
+                    <div class="div15">45</div>
+                    <div class="div16"> </div>
+                </div>
+
+            </div>
+            <button class="return" onclick="return_page()">RETURN TO MAIN PAGE</button>
+            <p style="text-align: center; margin-bottom: 10px;"><a style="font-size: 13px;text-align: center; margin: 2px; font-weight: bold ;" class="cr_1 credits" href="https://ashwinn-si.github.io/ashwin_si/"  target="_blank" >CREATED BY : ASHWIN SI (CSE)</a></p>
+        </div>
+
+    </div>
+    <script src="result_script.js"></script>
+
+</body>
+
+</html>

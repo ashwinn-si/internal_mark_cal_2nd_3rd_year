@@ -1,0 +1,122 @@
+*{
+    padding: 0;
+    margin:0;
+    font-family: "poppins";
+    text-transform: uppercase;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(232,226,226) !important;
+}
+.header{
+    font-size: 2rem;
+    padding-bottom: 0px;
+    font-weight: bold;
+    color: #333;
+    text-shadow: 0 4px 12px rgb(232, 232, 232);
+}
+.container{
+    padding: 10px;
+    background-color: rgb(232,226,226);
+}
+.sub-container{
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: solid;
+    border-width: 1px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 1);
+}
+.sub-container .row{
+    padding: 10px;
+}
+.sub_header{
+    font-size: 1.5rem;
+    padding-bottom: 10px;
+}
+.with_with_out_bonus_container{
+    font-size: 1.2rem;
+    padding-top: 0;
+}
+.mark_container,.extra_activity_container{
+    padding: 10px;
+    font-size: 1.3rem;
+}
+.input_box{
+    width: 100%;
+    border-radius: 5px;
+    padding: 0.5px;
+    text-align: center;
+    font-family: "New Amsterdam";
+}
+#calculate_button,#possible-mark-button{
+    width: 150px;
+    font-weight: bold;
+    padding: 1%;
+    background-color: white; 
+    color: black;
+    border: solid;
+    border-width: 1px;
+    border-color: #000;
+    border-radius: 5px;
+    cursor: pointer;   
+    font-size: 1rem;
+    text-align: center;
+    border-radius: 3px;
+}
+.result-mark-container{
+    background-color: hsl(0, 0%, 99%);
+    border:solid;
+    border-width: 1px;
+    padding: 10px;
+    border-radius: 10px;
+    visibility: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 1);
+}
+.result-mark-header{
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.result-mark-container .row{
+    padding: 0px;
+}
+.result-mark-container .row .col p{
+    font-size: 1.2rem;
+    text-align: left;
+    font-weight: 500;   
+}
+/*button styling*/
+input,button{
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1); 
+    transition: box-shadow 0.5s ease, transform 0.5s ease;
+}
+input:hover,button:hover{
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.15); /* Slightly deeper shadow on hover */
+    transform: translateY(-2px); /* Moves button up slightly */
+}
+
+/*checked box styling*/
+input[type="radio"]:checked{
+    background-color: tomato;
+    border-color: tomato;
+    box-shadow: 0 0 10px tomato, 0 0 20px tomato;
+}
+
+
+/*vibaration*/
+@keyframes smoothVibrate {
+    0% { transform: translate(0); }
+    10% { transform: translate(-5px, 5px); }
+    20% { transform: translate(5px, -5px); }
+    30% { transform: translate(-10px, 10px); }
+    40% { transform: translate(10px, -10px); }
+    50% { transform: translate(-15px, 15px); }
+    60% { transform: translate(15px, -15px); }
+    70% { transform: translate(-10px, 10px); }
+    80% { transform: translate(10px, -10px); }
+    90% { transform: translate(-5px, 5px); }
+    100% { transform: translate(0); }
+}
+
+.vibrate {
+    animation: smoothVibrate 1s ease infinite; /* Smooth and gentle vibration */
+}
