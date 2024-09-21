@@ -33,6 +33,12 @@ function radio_button_checker(b1, b2) {
     return true;
 }
 
+function celebration_effect(){
+    document.getElementById("congrs-lottie-animation").style.visibility='visible';
+    setInterval(()=>{
+        document.getElementById("congrs-lottie-animation").style.visibility='hidden';
+    },5000);
+}
 
 document.getElementById("calculate_button").addEventListener('click',()=>{
     result_mark=[0,0,false,false,false,false,0,0];
@@ -51,6 +57,7 @@ document.getElementById("calculate_button").addEventListener('click',()=>{
             }
         })
         main(m1_mark,m2_mark,m3_mark);
+        celebration_effect();
     }
     
     

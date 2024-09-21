@@ -40,7 +40,10 @@ body{
     font-size: 1.5rem;
     margin: 10px 0;
     text-align: center;
-    color: #F8D210;
+    color:  lightseagreen;
+}
+.sub_head span{
+    color:tomato;
 }
 .mark_container {
     display: flex;
