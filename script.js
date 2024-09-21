@@ -35,11 +35,18 @@ function radio_button_checker(b1, b2) {
 
 function celebration_effect(){
     document.getElementById("congrs-lottie-animation").style.visibility='visible';
-    document.getElementById("congrs-lottie-animation").classList.add('add_width');
-
+    if(window.innerWidth>768){
+        document.getElementById("congrs-lottie-animation").classList.add('add_width_pc');
+    }else{
+        document.getElementById("congrs-lottie-animation").classList.add('add_width_mobile');
+    }
     setInterval(()=>{
         document.getElementById("congrs-lottie-animation").style.visibility='hidden';
-        document.getElementById("congrs-lottie-animation").classList.remove('add_width');
+        if(window.innerWidth>768){
+            document.getElementById("congrs-lottie-animation").classList.remove('add_width_pc');
+        }else{
+            document.getElementById("congrs-lottie-animation").classList.remove('add_width_mobile');
+        }
     },5000);
 }
 

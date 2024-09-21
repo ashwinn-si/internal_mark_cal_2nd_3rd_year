@@ -131,7 +131,12 @@ input[type="radio"]:checked{
     top:0;
     left:0;
 }
-.add_width{
+.add_width_pc{
+    width: 100%;
+    height: 100%;
+}
+.add_width_mobile{
     width: 100vh;
     height: 100vh;
+    left:-50%;
 }
