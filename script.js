@@ -35,9 +35,12 @@ function radio_button_checker(b1, b2) {
 
 function celebration_effect(){
     document.getElementById("congrs-lottie-animation").style.visibility='visible';
+    document.getElementById("congrs-lottie-animation").classList.add('add_width');
+
     setInterval(()=>{
         document.getElementById("congrs-lottie-animation").style.visibility='hidden';
-    },5000);
+        document.getElementById("congrs-lottie-animation").classList.remove('add_width');
+    },3000);
 }
 
 document.getElementById("calculate_button").addEventListener('click',()=>{

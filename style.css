@@ -127,8 +127,10 @@ input[type="radio"]:checked{
 .initial_alert_container{
     background-color: transparent;
     position: absolute;
-    width: 40%;
     z-index: 999;
-    top:10%;
-    left: 30%;
+    top:0;
+    left:0;
+}
+.add_width{
+    width: 100%;
 }
