@@ -6,6 +6,7 @@ for(let i=0;i<7;i++){
     if(marks_display[i]>100){
         marks_display[i]=100;
     }
+    marks_display[i]=parseFloat(marks_display[i].toFixed(2));
 }        
 if (marks_display) {
     document.querySelector(".div4").innerHTML = marks_display[0];

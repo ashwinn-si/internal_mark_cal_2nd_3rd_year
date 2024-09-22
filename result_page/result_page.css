@@ -88,7 +88,7 @@ body{
 .initial_alert_container{
     background-color: rgba(255, 255, 255, 0.95);
     position: absolute;
-    width: 350px;
+    width: 500px;
     padding: 20px 0;
     border-radius: 30px;
     display: flex;
@@ -134,6 +134,9 @@ button:active {
     transform: translateY(0); /* Resets the button position */
 }
 @media (max-width: 768px) {
+    .initial_alert_container{
+        width: 350px;
+    }
     .heading{
         font-size: 2rem;
     }

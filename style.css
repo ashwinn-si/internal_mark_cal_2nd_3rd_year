@@ -85,6 +85,7 @@ body{
     font-weight: 500;   
 }
 /*button styling*/
+
 input,button{
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1); 
     transition: box-shadow 0.5s ease, transform 0.5s ease;
@@ -94,11 +95,27 @@ input:hover,button:hover{
     transform: translateY(-2px); /* Moves button up slightly */
 }
 
+/*input valid checker*/
+input:focus:valid{
+    color: green;
+    box-shadow: 0 0 15px lightgreen, 0 0 25px lightgreen;
+}
+input:focus:invalid{
+    color: red;
+    box-shadow: 0 0 15px tomato, 0 0 25px tomato;
+}
+input:invalid{
+    color: red;
+    border-color: tomato;
+    border-width: 2px;
+    box-shadow: 0 0 15px tomato, 0 0 25px tomato;
+}
 /*checked box styling*/
 input[type="radio"]:checked{
-    background-color: tomato;
-    border-color: tomato;
-    box-shadow: 0 0 10px tomato, 0 0 20px tomato;
+    background-color: purple;
+    border-color: purple;
+    box-shadow: 0 0 10px purple, 0 0 20px purple;
+    border-radius: 50%;
 }
 
 
