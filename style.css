@@ -8,6 +8,7 @@
 body{
     background-color: rgb(232,226,226) !important;
 }
+
 .header{
     font-size: 2rem;
     padding-bottom: 0px;
@@ -16,8 +17,55 @@ body{
     text-shadow: 0 4px 12px rgb(232, 232, 232);
 }
 .container{
+    position: relative;
     padding: 10px;
     background-color: rgb(232,226,226);
+}
+.pop_up_message_box{
+    position: absolute;
+    top:40%;
+    left: 32%;
+    z-index: 999;
+    background-color: rgba(255, 255, 255, 0.95);
+    position: absolute;
+    width: 500px;
+    padding: 20px 0;
+    font-size: 1.5rem;
+    border-radius: 20px;
+    border: solid;
+    border-color: black;
+    padding: 20px;
+    color: black;
+    font-weight: 500;
+}
+.pop_up_message_box p{
+    margin: 0;
+}
+.pop_up_message_box span{
+    color: purple;
+    font-weight: bold;
+}
+.pop_up_message_box button{
+    background-color: white; 
+      color: black;
+      padding: 10px 20px;
+      border: solid;
+      border-width: 1px;
+      border-color: #000;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1); 
+      transition: box-shadow 0.5s ease, transform 0.5s ease;
+}
+.pop_up_message_box button:hover{
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.15); /* Slightly deeper shadow on hover */
+    transform: translateY(-2px); /* Moves button up slightly */
+}
+.pop_up_message_box:active{
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow on button press */
+    transform: translateY(0); /* Resets the button position */
 }
 .sub-container{
     background-color: #ffffff;
@@ -156,4 +204,12 @@ input[type="radio"]:checked{
     width: 100vh;
     height: 100vh;
     left:-50%;
+}
+
+@media (max-width: 768px){
+    .pop_up_message_box{
+        width: 350px;
+        font-size: 1.2rem;
+        left:4%;
+    }
 }

@@ -21,12 +21,15 @@
 </head>
 <body>
     <div class="container text-center">
-        
         <p class="header">INTERNAL MARK CALCULATOR<br></p>
+        <div class="pop_up_message_box">
+            <p>ENTER THE MARK<span> WITHOUT 1.5</span></p>
+            <button onclick="document.querySelector('.pop_up_message_box').style.visibility='hidden'">continue</button>
+
+        </div>
         <div class="container sub-container col-12 col-md-6">
             <div class="initial_alert_container" id="congrs-lottie-animation">
-
-            </div>
+            </div>          
             <div class="row"><p class="sub_header" style="font-weight: 600;padding-bottom: 0px;">2 & 3 & 4 YEAR</p></div>
             <div class="row with_with_out_bonus_container justify-content-center" style="padding-top: 0px;">
                 <div class="col-2"><input type="radio" name="bonus" value="yes" id="yes_bonus"></div>
@@ -88,6 +91,6 @@
     <script src="./assets/bootstrap/jquery.min.js"></script>
     <script src="./assets/bootstrap/bootstrap.min.js"></script>
     <!--Lottie scripts-->
-    <script src="./assets/lottie_ani.js"></script>2
+    <script src="./assets/lottie_ani.js"></script>
 </body>
 </html>
