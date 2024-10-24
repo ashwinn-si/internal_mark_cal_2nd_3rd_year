@@ -1,3 +1,39 @@
+/* Define Root Variables for Light Theme (Default) */
+:root {
+    --primary-bg-color: #f5f5f5;
+    --secondary-bg-color: #ffffff;
+    --primary-font-color: #121212;
+    --secondary-font-color: #444444;
+    --container-bg-color: #f7f7f7;
+    --input-bg-color: #ffffff;
+    --input-font-color: #121212;
+    --button-bg-color: #007BFF;
+    --button-font-color: #ffffff;
+    --highlight-color: #6200ea;
+    --border-color: #ccc;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --light-green: lightgreen;
+    --tomato: tomato;
+}
+
+/* Define Root Variables for Dark Theme */
+[data-theme='dark'] {
+    --primary-bg-color: #121212;
+    --secondary-bg-color: #1f1f1f;
+    --primary-font-color: #e0e0e0;
+    --secondary-font-color: #bbbbbb;
+    --container-bg-color: #1f1f1f;
+    --input-bg-color: #2c2c2c;
+    --input-font-color: #e0e0e0;
+    --button-bg-color: #333333;
+    --button-font-color: #e0e0e0;
+    --highlight-color: #bb86fc;
+    --border-color: #444444;
+    --shadow-color: rgba(0, 0, 0, 0.7);
+    --light-green: lightgreen;
+    --tomato: tomato;
+}
+
 /* General Styles */
 * {
     padding: 0;
@@ -9,8 +45,9 @@
 
 /* Body */
 body {
-    background-color: #121212 !important; /* Dark background from Style 1 */
-    color: #e0e0e0; /* Light text from Style 1 */
+    background-color: var(--primary-bg-color);
+    color: var(--primary-font-color);
+    transition: background-color 0.3s, color 0.3s;
 }
 
 /* Header */
@@ -18,15 +55,37 @@ body {
     font-size: 2rem;
     padding-bottom: 0;
     font-weight: bold;
-    color: #e0e0e0; /* Light header text from Style 1 */
-    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.7); /* Adjusted shadow from Style 1 */
+    color: var(--primary-font-color);
+    text-shadow: 0 4px 12px var(--shadow-color);
 }
 
 /* Container */
 .container {
     position: relative;
     padding: 10px;
-    background-color: #121212; /* Dark container background from Style 1 */
+    background-color: var(--container-bg-color);
+    transition: background-color 0.3s;
+}
+
+/* Theme Selection Container */
+.theme-selector-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+
+/* Theme Selection Dropdown */
+#theme-selection {
+    width: 100%;
+    padding: 5px 6px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    color: var(--input-font-color);
+    background-color: var(--input-bg-color);
+}
+
+#theme-selection option {
+    color: var(--input-font-color);
 }
 
 /* Popup Message Box */
@@ -35,13 +94,13 @@ body {
     top: 40%;
     left: 32%;
     z-index: 999;
-    background-color: rgba(34, 34, 34, 0.95); /* Darker background from Style 1 */
+    background-color: var(--secondary-bg-color);
     width: 500px;
     padding: 20px;
     font-size: 1.5rem;
     border-radius: 20px;
-    border: solid 1px #444; /* Darker border from Style 1 */
-    color: white;
+    border: 1px solid var(--border-color);
+    color: var(--primary-font-color);
     font-weight: 500;
 }
 
@@ -50,39 +109,39 @@ body {
 }
 
 .pop_up_message_box span {
-    color: #bb86fc; /* Light purple text from Style 1 */
+    color: var(--highlight-color);
     font-weight: bold;
 }
 
 .pop_up_message_box button {
-    background-color: #333; /* Dark button background from Style 1 */
-    color: #e0e0e0; /* Light button text from Style 1 */
+    background-color: var(--button-bg-color);
+    color: var(--button-font-color);
     padding: 10px 20px;
-    border: solid 1px #555; /* Darker button border from Style 1 */
+    border: 1px solid var(--border-color);
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
     margin-top: 10px;
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); /* Adjusted shadow from Style 1 */
-    transition: box-shadow 0.5s ease, transform 0.5s ease;
+    box-shadow: 0 6px 8px var(--shadow-color);
+    transition: box-shadow 0.5s, transform 0.5s;
 }
 
 .pop_up_message_box button:hover {
-    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.4); /* Darker shadow on hover from Style 1 */
+    box-shadow: 0 8px 10px var(--shadow-color);
     transform: translateY(-2px);
 }
 
 .pop_up_message_box:active {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow on button press from Style 1 */
+    box-shadow: 0 2px 4px var(--shadow-color);
     transform: translateY(0);
 }
 
 /* Sub-Container */
 .sub-container {
-    background-color: #1f1f1f; /* Darker sub-container background from Style 1 */
+    background-color: var(--secondary-bg-color);
     border-radius: 10px;
-    border: solid 1px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7); /* Adjusted shadow from Style 1 */
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 12px var(--shadow-color);
 }
 
 .sub-container .row {
@@ -92,19 +151,19 @@ body {
 .sub_header {
     font-size: 1.5rem;
     padding-bottom: 10px;
-    color: #e0e0e0; /* Light text from Style 1 */
+    color: var(--primary-font-color);
 }
 
 .with_with_out_bonus_container {
     font-size: 1.2rem;
     padding-top: 0;
-    color: #e0e0e0; /* Light text from Style 1 */
+    color: var(--primary-font-color);
 }
 
 .mark_container, .extra_activity_container {
     padding: 10px;
     font-size: 1.3rem;
-    color: #e0e0e0; /* Light text from Style 1 */
+    color: var(--primary-font-color);
 }
 
 /* Input Box */
@@ -113,9 +172,8 @@ body {
     border-radius: 5px;
     padding: 0.5px;
     text-align: center;
-    font-family: "New Amsterdam";
-    background-color: #2c2c2c; /* Dark input box background from Style 1 */
-    color: #e0e0e0; /* Light input box text from Style 1 */
+    background-color: var(--input-bg-color);
+    color: var(--input-font-color);
 }
 
 /* Calculate Button */
@@ -123,9 +181,9 @@ body {
     width: 150px;
     font-weight: bold;
     padding: 1%;
-    background-color: #333; /* Dark button background from Style 1 */
-    color: #e0e0e0; /* Light button text from Style 1 */
-    border: solid 1px #555; /* Darker button border from Style 1 */
+    background-color: var(--button-bg-color);
+    color: var(--button-font-color);
+    border: 1px solid var(--border-color);
     border-radius: 3px;
     cursor: pointer;
     font-size: 1rem;
@@ -134,60 +192,61 @@ body {
 
 /* Result Mark Container */
 .result-mark-container {
-    background-color: #1f1f1f; /* Darker result container background from Style 1 */
-    border: solid 1px;
+    background-color: var(--secondary-bg-color);
+    border: 1px solid var(--border-color);
     padding: 10px;
     border-radius: 10px;
     visibility: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7); /* Adjusted shadow from Style 1 */
+    box-shadow: 0 4px 12px var(--shadow-color);
 }
 
 .result-mark-header {
     font-size: 1.2rem;
     font-weight: bold;
-    color: #e0e0e0; /* Light text from Style 1 */
+    color: var(--primary-font-color);
 }
 
 .result-mark-container .row .col p {
     font-size: 1.2rem;
     text-align: left;
     font-weight: 500;
-    color: #e0e0e0; /* Light text from Style 1 */
+    color: var(--primary-font-color);
 }
 
 /* Button & Input Hover Effects */
 input, button {
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); /* Adjusted shadow from Style 1 */
-    transition: box-shadow 0.5s ease, transform 0.5s ease;
+    box-shadow: 0 6px 8px var(--shadow-color);
+    transition: box-shadow 0.5s, transform 0.5s;
+    font-family: "New Amsterdam";
+    font-weight: 500;
 }
 
 input:hover, button:hover {
-    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.4); /* Darker shadow on hover from Style 1 */
+    box-shadow: 0 8px 10px var(--shadow-color);
     transform: translateY(-2px);
 }
 
 input:focus:valid {
-    color: lightgreen;
-    box-shadow: 0 0 15px lightgreen, 0 0 25px lightgreen;
+    color: var(--light-green);
+    box-shadow: 0 0 15px var(--light-green);
 }
 
 input:focus:invalid {
-    color: tomato;
-    box-shadow: 0 0 15px tomato, 0 0 25px tomato;
+    color: var(--tomato);
+    box-shadow: 0 0 15px var(--tomato);
 }
 
 input:invalid {
-    color: tomato;
-    border-color: tomato;
-    border-width: 2px;
-    box-shadow: 0 0 15px tomato, 0 0 25px tomato;
+    color: var(--tomato);
+    border-color: var(--tomato);
+    box-shadow: 0 0 15px var(--tomato);
 }
 
 /* Checked Radio Box */
 input[type="radio"]:checked {
-    background-color: #bb86fc; /* Dark theme checked radio color from Style 1 */
-    border-color: #bb86fc;
-    box-shadow: 0 0 10px #bb86fc, 0 0 20px #bb86fc;
+    background-color: var(--highlight-color);
+    border-color: var(--highlight-color);
+    box-shadow: 0 0 10px var(--highlight-color), 0 0 20px var(--highlight-color);
     border-radius: 50%;
 }
 
@@ -207,7 +266,7 @@ input[type="radio"]:checked {
 }
 
 .vibrate {
-    animation: smoothVibrate 1s ease infinite; /* Smooth and gentle vibration from Style 1 */
+    animation: smoothVibrate 1s ease infinite;
 }
 
 /* Celebration Animation */
@@ -241,4 +300,5 @@ input[type="radio"]:checked {
         font-size: 1.2rem;
         left: 4%;
     }
+
 }

@@ -191,3 +191,12 @@ function main(m1_mark,m2_mark,m3_mark){
     console.log(result_mark);
 }
 
+//theme changer
+function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', newTheme);
+}
+
+// Example of usage
+document.getElementById('theme-selection').addEventListener('change', toggleTheme);

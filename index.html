@@ -27,7 +27,7 @@
         })(window, document, "clarity", "script", "omklcorbqd");
     </script>
 </head>
-<body>
+<body style="background-color: var(--container-bg-color)">
     <div class="container text-center">
         <p class="header">INTERNAL MARK CALCULATOR<br></p>
         <div class="pop_up_message_box">
@@ -38,7 +38,16 @@
         <div class="container sub-container col-12 col-md-6">
             <div class="initial_alert_container" id="congrs-lottie-animation">
             </div>          
-            <div class="row"><p class="sub_header" style="font-weight: 600;padding-bottom: 0px;">2 & 3 & 4 YEAR</p></div>
+            <div class="row align-items-center sub-header-container">
+                <p class="sub_header col-8 col-md-10" style="font-weight: 600; padding-bottom: 0;">2 & 3 & 4 YEAR</p>
+                <div class="theme-selector-container col-4 col-md-2 text-md-end space-between">
+                    <select id="theme-selection" class="form-select">
+                        <option value="light">Light</option>
+                        <option value="dark">Dark</option>
+                    </select>
+                </div>
+            </div>
+            
             <div class="row with_with_out_bonus_container justify-content-center" style="padding-top: 0px;">
                 <div class="col-2"><input type="radio" name="bonus" value="yes" id="yes_bonus"></div>
                 <div class="col-4" style="font-weight: 500;">WITH BONUS</div>
