@@ -193,10 +193,20 @@ function main(m1_mark,m2_mark,m3_mark){
 
 //theme changer
 function toggleTheme() {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    const currentTheme = document.getElementById('theme-selection').value;
+    let newTheme;
+
+    if (currentTheme === 'dark') {
+        newTheme = 'dark'; // Switch to light theme
+    } else if (currentTheme === 'green') {
+        newTheme = 'green'; // Switch to green theme
+    } else {
+        newTheme = 'light'; // Switch to light theme
+    }
+    console.log(newTheme);
     document.documentElement.setAttribute('data-theme', newTheme);
 }
 
 // Example of usage
 document.getElementById('theme-selection').addEventListener('change', toggleTheme);
+
