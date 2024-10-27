@@ -216,6 +216,12 @@ body {
     text-align: center;
 }
 
+.special_nptel_case{
+    font-size: 1.2rem;
+    text-wrap: wrap;
+    text-align: center;
+}
+
 /* Result Mark Container */
 .result-mark-container {
     background-color: var(--secondary-bg-color);
@@ -370,5 +376,8 @@ input[type="radio"]:checked {
         text-align: center;
         font-size: 1rem;
         padding: 10px;
+    }
+    .special_nptel_case{
+        font-size: 0.8rem;
     }
 }

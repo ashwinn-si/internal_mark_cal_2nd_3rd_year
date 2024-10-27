@@ -33,6 +33,28 @@ function radio_button_checker(b1, b2) {
     return true;
 }
 
+function radio_button_checker(b1, b2, b3) {
+    const button1 = document.getElementById(b1);
+    const button2 = document.getElementById(b2);
+    const button3 = document.getElementById(b3);
+
+    if (!button1.checked && !button2.checked && !button3.checked) {
+        navigator.vibrate(200);
+        const container1 = document.getElementById(`${b1}`);
+        container1.classList.add('vibrate');
+        setTimeout(() => {
+            container1.classList.remove('vibrate');
+        }, 400);
+        const container2 = document.getElementById(`${b2}`);
+        container2.classList.add('vibrate');
+        setTimeout(() => {
+            container2.classList.remove('vibrate');
+        }, 400);
+        return false;
+    }
+    return true;
+}
+
 function celebration_effect(){
     document.getElementById("congrs-lottie-animation").style.visibility='visible';
     if(window.innerWidth>768){
@@ -56,7 +78,7 @@ document.getElementById("calculate_button").addEventListener('click',()=>{
     let m1_mark=parseInt(document.getElementById('mark_m1').value)
     let m2_mark=parseInt(document.getElementById('mark_m2').value)
     let m3_mark=parseInt(document.getElementById('mark_m3').value)
-    if(input_box_error_handler(m1_mark,'mark_m1') && input_box_error_handler(m2_mark,'mark_m2') && input_box_error_handler(m3_mark,'mark_m3') && radio_button_checker('yes_bonus','no_bonus') && radio_button_checker('nptel_yes','nptel_no') && radio_button_checker('course_yes','course_no') &&radio_button_checker('extra_yes','extra_no')){
+    if(input_box_error_handler(m1_mark,'mark_m1') && input_box_error_handler(m2_mark,'mark_m2') && input_box_error_handler(m3_mark,'mark_m3') && radio_button_checker('yes_bonus','no_bonus') && radio_button_checker('nptel_yes','nptel_no','nptel_not_registered') && radio_button_checker('course_yes','course_no') &&radio_button_checker('extra_yes','extra_no')){
         console.log(m1_mark);
         const bonus=document.getElementsByName('bonus');
         bonus.forEach((element)=>{
@@ -90,7 +112,11 @@ function extra_activity_cal(){
     nptel_buttons.forEach((element)=>{
         if(element.checked){
             if(element.value==='yes'){
-                result_mark[3]=true;
+                result_mark[3]="pass";
+            }else if(element.value==='no'){
+                result_mark[3]="fail";
+            }else{
+                result_mark[3]="not_registered";//not registered
             }
         }
     })
@@ -112,8 +138,12 @@ function extra_activity_cal(){
 //first_10,second_10,bonus,nptel,course,extra,final_result,external
 function internal_mark_calculation(){
     let result=result_mark[0]+result_mark[1];
-    if(result_mark[3]){
+    if(result_mark[3]==='pass'){
         result+=8;
+    }else if(result_mark[3]==='fail'){
+        result+=6;
+    }else{
+        result+=4;
     }
     if(result_mark[4]){
         result+=7;
@@ -136,7 +166,16 @@ function external_mark_calculation(){ //calcualtes the external mark
 
 function display_changer(){
     let bonus_or_not=(result_mark[2])?"WITH BONUS":"WITHOUT BONUS";
-    let nptel=(result_mark[3])?"8":"0";
+
+    let nptel=8;
+    if(result_mark[3]==="pass"){
+        nptel=8;
+    }else if(result_mark[3]==="fail"){
+        nptel=6;
+    }else{
+        nptel=4;
+    }
+
     let extra=(result_mark[5])?"5":"0";
     let course=(result_mark[4])?"7":"0";
     document.querySelector('.result-mark-container').style.visibility='visible';
