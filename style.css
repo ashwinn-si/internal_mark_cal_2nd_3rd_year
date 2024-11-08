@@ -44,15 +44,14 @@
     --primary-font-color: #F0F0F0;
     --secondary-font-color: #AFDDE5;
     --container-bg-color: #003135;
-    --input-bg-color: #f4f4f4;
-    --input-font-color: black;
+    --input-bg-color: #024950;
+    --input-font-color: #F0F0F0;
     --button-bg-color: #28A745;
     --button-font-color: #F0F0F0; 
     --button-hover-bg-color: #218838;
     --highlight-color: #13ebfa;
-    --border-color: #0FA4AF;
+    --border-color: #13ebfa;
     --shadow-color: rgba(0, 0, 0, 0.7);
-    --accent-color: #0FA4AF;
     --light-accent-color: #AFDDE5;
     --theme-font:black;
     --tomato:#B22222;
@@ -261,6 +260,11 @@ button {
     font-family: "New Amsterdam";
     font-weight: 500;
     padding: 10px;
+    border: solid 1px var(--border-color);
+}
+
+input::placeholder{
+    color: var(--input-font-color);
 }
 
 input:hover,
