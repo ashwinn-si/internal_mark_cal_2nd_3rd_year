@@ -33,18 +33,27 @@
         <div class="pop_up_message_box">
             <p>Enter ther mark<span> WITHOUT 1.5</span></p>
             <button onclick="document.querySelector('.pop_up_message_box').style.visibility='hidden'">continue</button>
-
+        </div>
+        <div class="pop_up_message_box nptel_pop_up_message" id="nptel_alert_container">
+            <p >As few <span>Departments</span> are awarding<br>
+                4 marks <span style="font-size: 2rem;">&#8594;</span> NOT register nptel<br>
+                6 marks <span style="font-size: 2rem;">&#8594;</span> failing nptel<br>
+                8 marks <span style="font-size: 2rem;">&#8594;</span> passing nptel<br>
+                for <span>UNIFORMITY</span><br>
+                0 marks <span style="font-size: 2rem;">&#8594;</span> failing<br>
+                8 marks <span style="font-size: 2rem;">&#8594;</span> passing</p>
+            <button id="initial_pop_up_return_button" onclick="document.getElementById('nptel_alert_container').style.visibility='hidden'">continue</button>
         </div>
         <div class="container sub-container col-12 col-md-6">
-            <div class="initial_alert_container" id="congrs-lottie-animation">
+            <div class="lottie_container" id="congrs-lottie-animation">
             </div>          
             <div class="row align-items-center sub-header-container">
                 <p class="sub_header col-8 col-md-10" style="font-weight: 600; padding-bottom: 0;">2 & 3 & 4 Year</p>
                 <div class="theme-selector-container col-4 col-md-2 text-md-end space-between">
-                    <select id="theme-selection" class="form-select">
-                        <option value="light">Light</option>
-                        <option value="dark">Dark</option>
-                        <option value="green">Green</option>
+                    <select id="theme-selection" class="form-select" style="padding-left:25%;">
+                        <option value="dark">&#128420;</option>
+                        <option value="light">&#129293;</option>
+                        <option value="green">&#128154;</option>
                     </select>
                 </div>
             </div>
@@ -93,9 +102,8 @@
             <div class="container result-mark-container col-10 col-md-7">
             </div>
             <div class="row">
-                <div class="col justify-content-center" style="display: flex; flex-direction: row;">
-                    <div id="lottie-animation" style="width: 50px; height:50px;" ></div>
-                    <div style="display: flex;justify-self: center;align-items: center;flex-direction: row;background: linear-gradient(to right, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);-webkit-background-clip: text;color: transparent;"><a style="font-family: New Amsterdam;font-size: 1.5rem;letter-spacing: 1px;text-decoration: none;text-underline-position: none;background: linear-gradient(45deg, #F58529, #DD2A7B, #8134AF, #515BD4); -webkit-background-clip: text; color: transparent;" href="https://github.com/ashwinn-si/internal_mark_cal_2nd_3rd_year" target="_blank">BHAVADHARANI [CSE]</a></div>
+                <div class="col justify-content-center">
+                    <p style="font-weight: normal; font-size: 1.5rem; margin: 0;color: var(--primary-font-color);font-family: 'New Amsterdam';">Ashwin S I &#128151;</p>
                 </div>
                 
             </div>

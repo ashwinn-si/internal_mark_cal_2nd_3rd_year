@@ -68,6 +68,7 @@ document.getElementById("calculate_button").addEventListener('click',()=>{
         })
         main(m1_mark,m2_mark,m3_mark);
         celebration_effect();
+        document.getElementById('nptel_alert_container').style.visibility='visible';
     }
     
     

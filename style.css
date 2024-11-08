@@ -1,24 +1,5 @@
 /* Define Root Variables for Light Theme (Default) */
 :root {
-    --primary-bg-color: #f5f5f5;
-    --secondary-bg-color: #ffffff;
-    --primary-font-color: #121212;
-    --secondary-font-color: #444444;
-    --container-bg-color: #f7f7f7;
-    --input-bg-color: #ffffff;
-    --input-font-color: #121212;
-    --button-bg-color: #007BFF;
-    --button-font-color: #ffffff;
-    --highlight-color: #ea00ea;
-    --border-color: #000000;
-    --shadow-color: rgba(0, 0, 0, 0.3);
-    --light-green: green;
-    --theme-font:black;
-    --tomato: rgb(255, 0, 0);
-}
-
-/* Define Root Variables for Dark Theme */
-[data-theme='dark'] {
     --primary-bg-color: #121212;
     --secondary-bg-color: #1f1f1f;
     --primary-font-color: #e0e0e0;
@@ -34,6 +15,27 @@
     --light-green: lightgreen;
     --tomato: tomato;
     --theme-font:white;
+    --text-shadow-color:white;
+}
+
+/* Define Root Variables for white Theme */
+[data-theme='light'] {
+    --primary-bg-color: #f5f5f5;
+    --secondary-bg-color: #ffffff;
+    --primary-font-color: #121212;
+    --secondary-font-color: #444444;
+    --container-bg-color: #f7f7f7;
+    --input-bg-color: #ffffff;
+    --input-font-color: #121212;
+    --button-bg-color: #007BFF;
+    --button-font-color: #ffffff;
+    --highlight-color: #ea00ea;
+    --border-color: #000000;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --light-green: green;
+    --theme-font:black;
+    --tomato: rgb(255, 0, 0);
+    --text-shadow-color:black;
 }
 
 [data-theme='green'] {
@@ -47,7 +49,7 @@
     --button-bg-color: #28A745;
     --button-font-color: #F0F0F0; 
     --button-hover-bg-color: #218838;
-    --highlight-color: white;
+    --highlight-color: #13ebfa;
     --border-color: #0FA4AF;
     --shadow-color: rgba(0, 0, 0, 0.7);
     --accent-color: #0FA4AF;
@@ -55,6 +57,7 @@
     --theme-font:black;
     --tomato:#B22222;
     --light-green: #4CAF50;
+    --text-shadow-color:#13ebfa;
 }
 
 /* General Styles */
@@ -95,6 +98,10 @@ body {
     display: flex;
     justify-content: flex-end;
     margin-bottom: 10px;
+}
+.theme-selector-container select{
+    text-shadow: -1px -1px 2px var(--text-shadow-color), 1px -1px 2px var(--text-shadow-color), -1px 1px 2px var(--text-shadow-color), 1px 1px 2px var(--text-shadow-color);
+
 }
 
 /* Theme Selection Dropdown */
@@ -160,6 +167,11 @@ body {
     transform: translateY(0);
 }
 
+.nptel_pop_up_message{
+    top:40%;
+    visibility: hidden;
+}
+
 /* Sub-Container */
 .sub-container {
     background-color: var(--secondary-bg-color);
@@ -199,6 +211,8 @@ body {
     text-align: center;
     background-color: var(--input-bg-color);
     color: var(--input-font-color);
+    font-family: "New Amsterdam";
+    font-size: 1.5rem;
 }
 
 /* Calculate Button */
@@ -339,7 +353,7 @@ input[type="radio"]:checked {
     visibility: hidden;
 }
 
-.initial_alert_container {
+.lottie_container {
     background-color: transparent;
     position: absolute;
     z-index: 999;
@@ -365,10 +379,7 @@ input[type="radio"]:checked {
         font-size: 1.2rem;
         left: 4%;
     }
-
-    input::placeholder {
-        text-align: center;
-        font-size: 1rem;
-        padding: 10px;
+    .mark_container{
+        font-size: 1.2rem;
     }
 }
