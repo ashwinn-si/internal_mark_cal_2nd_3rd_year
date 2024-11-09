@@ -16,6 +16,7 @@
     --tomato: tomato;
     --theme-font:white;
     --text-shadow-color:white;
+    --slider-color:#e8e8e8;
 }
 
 /* Define Root Variables for white Theme */
@@ -36,27 +37,7 @@
     --theme-font:black;
     --tomato: rgb(255, 0, 0);
     --text-shadow-color:black;
-}
-
-[data-theme='green'] {
-    --primary-bg-color:#003135;
-    --secondary-bg-color: #024950;
-    --primary-font-color: #F0F0F0;
-    --secondary-font-color: #AFDDE5;
-    --container-bg-color: #003135;
-    --input-bg-color: #024950;
-    --input-font-color: #F0F0F0;
-    --button-bg-color: #28A745;
-    --button-font-color: #F0F0F0; 
-    --button-hover-bg-color: #218838;
-    --highlight-color: #13ebfa;
-    --border-color: #13ebfa;
-    --shadow-color: rgba(0, 0, 0, 0.7);
-    --light-accent-color: #AFDDE5;
-    --theme-font:black;
-    --tomato:#B22222;
-    --light-green: #4CAF50;
-    --text-shadow-color:#13ebfa;
+    --slider-color:#e8e8e8;
 }
 
 /* General Styles */
@@ -93,28 +74,108 @@ body {
 }
 
 /* Theme Selection Container */
-.theme-selector-container {
-    display: flex;
-    justify-content: flex-end;
+.theme-toggle-container {
     margin-bottom: 10px;
 }
-.theme-selector-container select{
-    text-shadow: -1px -1px 2px var(--text-shadow-color), 1px -1px 2px var(--text-shadow-color), -1px 1px 2px var(--text-shadow-color), 1px 1px 2px var(--text-shadow-color);
 
+/* Toggle Switch Container */
+.switch {
+    font-size: 17px;
+    position: relative;
+    display: inline-block;
+    width: 64px;
+    height: 34px;
 }
 
-/* Theme Selection Dropdown */
-#theme-selection {
-    width: 100%;
-    padding: 5px 6px;
-    border-radius: 10px;
-    border: 1px solid var(--border-color);
-    color: var(--theme-font);
-    background-color: var(--input-bg-color);
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
 }
 
-#theme-selection option {
-    color: var(--theme-font);
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #73C0FC;
+    transition: .4s;
+    border-radius: 30px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 30px;
+    width: 30px;
+    border-radius: 20px;
+    left: 2px;
+    bottom: 2px;
+    z-index: 2;
+    background-color: var(--slider-color);
+    transition: .4s;
+}
+
+.sun svg {
+    position: absolute;
+    top: 6px;
+    left: 36px;
+    z-index: 1;
+    width: 24px;
+    height: 24px;
+}
+
+.moon svg {
+    fill: #73C0FC;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    z-index: 1;
+    width: 24px;
+    height: 24px;
+}
+
+.input:checked + .slider {
+    background-color: #183153;
+}
+
+.input:checked + .slider:before {
+    transform: translateX(30px);
+}
+
+/* Sun and Moon Animation */
+.sun svg {
+    animation: rotate 15s linear infinite;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.moon svg {
+    animation: tilt 5s linear infinite;
+}
+
+@keyframes tilt {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(-35deg);
+    }
+    75% {
+        transform: rotate(35deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
 }
 
 /* Popup Message Box */
@@ -376,6 +437,28 @@ input[type="radio"]:checked {
     left: -50%;
 }
 
+/*heart animation*/
+.heart{
+    animation: heart-animation 5s ease infinite;
+}
+
+@keyframes heart-animation{
+    0%{
+        font-size: 1.25rem;
+    }
+    25%{
+        font-size: 1.5rem;
+    }
+    50%{
+        font-size: 1.25rem;
+    }
+    75%{
+        font-size: 1.5rem;
+    }
+    100%{
+        font-size: 1.25rem;
+    }
+}
 /* Responsive Styling for Mobile */
 @media (max-width: 768px) {
     .pop_up_message_box {

@@ -193,21 +193,32 @@ function main(m1_mark,m2_mark,m3_mark){
 }
 
 //theme changer
+// Define the toggle switch and initialize the theme variable
+const themeToggle = document.querySelector('.switch .input');
+
+// Function to switch themes based on the current toggle position and theme state
 function toggleTheme() {
-    const currentTheme = document.getElementById('theme-selection').value;
     let newTheme;
 
-    if (currentTheme === 'dark') {
-        newTheme = 'dark'; // Switch to light theme
-    } else if (currentTheme === 'green') {
-        newTheme = 'green'; // Switch to green theme
+    // Check the toggle switch and set the theme
+    if (themeToggle.checked) {
+        // If toggle is on, switch to dark theme by default
+        newTheme = 'dark';
     } else {
-        newTheme = 'light'; // Switch to light theme
+        // Otherwise, switch to light or green theme based on current state
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        newTheme = "light";
     }
-    console.log(newTheme);
+
+    // Apply the new theme by setting a data attribute on the HTML element
+    console.log("Switching to theme:", newTheme);
     document.documentElement.setAttribute('data-theme', newTheme);
 }
 
-// Example of usage
-document.getElementById('theme-selection').addEventListener('change', toggleTheme);
+// Listen for toggle switch changes
+themeToggle.addEventListener('change', toggleTheme);
+
+// Initialize the theme on page load
+toggleTheme();
+
 
