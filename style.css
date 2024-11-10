@@ -230,6 +230,7 @@ body {
 .nptel_pop_up_message{
     top:40%;
     visibility: hidden;
+    z-index: 999;
 }
 
 /* Sub-Container */
@@ -261,6 +262,7 @@ body {
     padding: 10px;
     font-size: 1.3rem;
     color: var(--primary-font-color);
+    margin: 10px;
 }
 
 /* Input Box */
@@ -351,12 +353,63 @@ input:invalid {
 }
 
 /* Checked Radio Box */
-input[type="radio"]:checked {
-    background-color: var(--highlight-color);
-    border-color: var(--highlight-color);
-    box-shadow: 0 0 10px var(--highlight-color), 0 0 20px var(--highlight-color);
-    border-radius: 50%;
-}
+/* From Uiverse.io by Praashoo7 */ 
+.radio-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: var(--container-bg-color);
+  }
+  
+  .radio-input input {
+    appearance: none;
+    width: 1rem;
+    height: 1rem;
+    background-color: var(--container-bg-color);
+    box-shadow: inset 2px 5px 10px var(--input-bg-color);
+    border-radius: 5px;
+    transition: .4s ease-in-out;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .radio-input input:hover {
+    cursor: pointer;
+  }
+  
+  .radio-input .plus1 {
+    position: relative;
+    top:-15%;
+    width: 1rem;
+    height: 0.2em;
+    background-color: red;
+    rotate: 45deg;
+    scale: 0;
+    border-radius: 5px;
+    transition: .4s ease-in-out;
+  }
+  
+  .radio-input .plus2 {
+    position: relative;
+    width: 1rem;
+    height: 0.2em;
+    background-color: red;
+    transform: rotate(90deg);
+    border-radius: 5px;
+    transition: .4s ease-in-out;
+  }
+  
+  .radio-input input:checked {
+    box-shadow: none;
+  }
+  
+  .radio-input input:checked + .plus1 {
+    transform: rotate(180deg);
+    scale: 1;
+  }
 
 * {
     text-transform: capitalize;
@@ -421,7 +474,7 @@ input[type="radio"]:checked {
 .lottie_container {
     background-color: transparent;
     position: absolute;
-    z-index: 999;
+    z-index: 998;
     top: 0;
     left: 0;
 }
@@ -468,5 +521,8 @@ input[type="radio"]:checked {
     }
     .mark_container{
         font-size: 1.2rem;
+    }
+    .col-3 p{
+        margin: 0;
     }
 }

@@ -72,9 +72,19 @@
             </div>
             
             <div class="row with_with_out_bonus_container justify-content-center" style="padding-top: 0px;">
-                <div class="col-2"><input type="radio" name="bonus" value="yes" id="yes_bonus"></div>
+                <div class="col-2 radio-input">
+                    <input type="radio" name="bonus" value="yes" id="yes_bonus">
+                    <div class="plus1">
+                        <div class="plus2"></div>
+                    </div>
+                </div>
                 <div class="col-4" style="font-weight: 500;">With Bonus</div>
-                <div class="col-2"><input type="radio" name="bonus" value="no" id="no_bonus"></div>
+                <div class="col-2 radio-input">
+                    <input type="radio" name="bonus" value="no" id="no_bonus">
+                    <div class="plus1">
+                        <div class="plus2"></div>
+                    </div>
+                </div>
                 <div class="col-4 " style="font-weight: 500;">Without Bonus</div>
             </div>
             <div class="row mark_container">
@@ -89,27 +99,58 @@
                 <div class="col-6" style="font-weight: 500;">Enter mark scored in M3</div>
                 <div class="col-6"><input type="number" min=0 max=100 id="mark_m3" class="input_box" placeholder="Enter Mark"></div>
             </div>
-            <div class="row extra_activity_container">
+            <div class="row extra_activity_container align-items-center">
                 <div class="col-4" style="font-weight: 500;">NPTEL</div>
-                <div class="col-1"><input type="radio" name="nptel" value="yes" id="nptel_yes"></div>
-                <div class="col-3"><p style="font-weight: 400;">Pass</p></div>
-                <div class="col-1"><input type="radio" name="nptel" value="no" id="nptel_no"></div>
-                <div class="col-3"><p style="font-weight: 400;">Fail</p></div>
+                <div class="col-1 d-flex justify-content-center radio-input">
+                    <input type="radio" name="nptel" value="yes" id="nptel_yes">
+                    <div class="plus1">
+                        <div class="plus2"></div>
+                    </div>
+                </div>
+                <div class="col-3"><p style="font-weight: 400; margin: 0;">Pass</p></div>
+                <div class="col-1 d-flex justify-content-center radio-input">
+                    <input type="radio" name="nptel" value="no" id="nptel_no">
+                    <div class="plus1">
+                        <div class="plus2"></div>
+                    </div>
+                </div>
+                <div class="col-3"><p style="font-weight: 400; margin: 0;">Fail</p></div>
             </div>
-            <div class="row extra_activity_container">
+            <div class="row extra_activity_container align-items-center">
                 <div class="col-4" style="font-weight: 500;">Online Course</div>
-                <div class="col-1"><input type="radio" name="course" value="yes" id="course_yes"></div>
-                <div class="col-3"><p style="font-weight: 400;">Done</p></div>
-                <div class="col-1"><input type="radio" name="course" value="no" id="course_no"></div>
-                <div class="col-3"><p style="font-weight: 400;">Not Done</p></div>
+                <div class="col-1 d-flex justify-content-center radio-input">
+                    <input type="radio" name="course" value="yes" id="course_yes">
+                    <div class="plus1">
+                        <div class="plus2"></div>
+                    </div>
+                </div>
+                <div class="col-3"><p style="font-weight: 400; margin: 0;">Done</p></div>
+                <div class="col-1 d-flex justify-content-center radio-input">
+                    <input type="radio" name="course" value="no" id="course_no">
+                    <div class="plus1">
+                        <div class="plus2"></div>
+                    </div>
+                </div>
+                <div class="col-3"><p style="font-weight: 400; margin: 0;">Not Done</p></div>
             </div>
-            <div class="row extra_activity_container">
-                <div class="col-4" style="font-weight: 500;">Extra Activity<br></div>
-                <div class="col-1"><input type="radio" name="extra" value="yes" id="extra_yes"></div>
-                <div class="col-3"><p style="font-weight: 400;">Done</p></div>
-                <div class="col-1"><input type="radio" name="extra" value="no" id="extra_no"></div>
-                <div class="col-3"><p style="font-weight: 400;">Not Done</p></div>
-            </div>
+            
+            <div class="row extra_activity_container align-items-center">
+                <div class="col-4" style="font-weight: 500;">Extra Activity</div>
+                <div class="col-1 d-flex justify-content-center radio-input">
+                    <input type="radio" name="extra" value="yes" id="extra_yes">
+                    <div class="plus1">
+                        <div class="plus2"></div>
+                    </div>
+                </div>
+                <div class="col-3"><p style="font-weight: 400; margin: 0;">Done</p></div>
+                <div class="col-1 d-flex justify-content-center radio-input">
+                    <input type="radio" name="extra" value="no" id="extra_no">
+                    <div class="plus1">
+                        <div class="plus2"></div>
+                    </div>
+                </div>
+                <div class="col-3"><p style="font-weight: 400; margin: 0;">Not Done</p></div>
+            </div>            
             <div class="row justify-content-center "><button  id="calculate_button">CALCULATE</button></div>
             <div class="row justify-content-center" id="special_case_text"></div>
             <div class="container result-mark-container col-10 col-md-7">
