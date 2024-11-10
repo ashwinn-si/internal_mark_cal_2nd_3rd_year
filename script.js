@@ -1,4 +1,7 @@
 let result_mark=[0,0,false,false,false,false,0,0];//first_10,second_10,bonus,nptel,course,extra,final,external
+
+let nptel_pop_flag=false;
+
 function input_box_error_handler(mark,element_id){
     if(mark<0 || mark>100|| isNaN(mark)){
         navigator.vibrate(200);
@@ -47,7 +50,7 @@ function celebration_effect(){
         }else{
             document.getElementById("congrs-lottie-animation").classList.remove('add_width_mobile');
         }
-    },5000);
+    },3000);
 }
 
 document.getElementById("calculate_button").addEventListener('click',()=>{
@@ -68,7 +71,10 @@ document.getElementById("calculate_button").addEventListener('click',()=>{
         })
         main(m1_mark,m2_mark,m3_mark);
         celebration_effect();
-        document.getElementById('nptel_alert_container').style.visibility='visible';
+        if(!nptel_pop_flag){
+            document.getElementById('nptel_alert_container').style.visibility='visible';
+            nptel_pop_flag=true;
+        }
     }
     
     
