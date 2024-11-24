@@ -17,6 +17,7 @@
     --theme-font:white;
     --text-shadow-color:white;
     --slider-color:#e8e8e8;
+    --tick-color:var(--light-green)
 }
 
 /* Define Root Variables for white Theme */
@@ -38,6 +39,7 @@
     --tomato: rgb(255, 0, 0);
     --text-shadow-color:black;
     --slider-color:#e8e8e8;
+    --tick-color:var(--tomato)
 }
 
 /* General Styles */
@@ -62,7 +64,6 @@ body {
     padding-bottom: 0;
     font-weight: bold;
     color: var(--primary-font-color);
-    text-shadow: 0 4px 12px var(--shadow-color);
 }
 
 /* Container */
@@ -383,25 +384,30 @@ input:invalid {
   .radio-input .plus1 {
     position: relative;
     top:-15%;
+    right: -10%;
     width: 1rem;
     height: 0.2em;
-    background-color: red;
-    rotate: 45deg;
+    background-color: var(--tick-color);
+    rotate: -45deg;
     scale: 0;
     border-radius: 5px;
     transition: .4s ease-in-out;
   }
   
   .radio-input .plus2 {
-    position: relative;
-    width: 1rem;
+    position: absolute;
+    width: 0.6rem;
     height: 0.2em;
-    background-color: red;
+    background-color: var(--tick-color);
+    left:55%;
+    top:100%;
     transform: rotate(90deg);
     border-radius: 5px;
     transition: .4s ease-in-out;
   }
-  
+  .with_with_out_bonus_container .radio-input .plus1{
+    right: -2%;
+  }
   .radio-input input:checked {
     box-shadow: none;
   }
