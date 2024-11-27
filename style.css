@@ -531,4 +531,15 @@ input:invalid {
     .col-3 p{
         margin: 0;
     }
+    .radio-input .plus1{
+        width: 2rem;
+        height: 0.35rem;
+        border-radius: 50%;
+    }
+    .radio-input .plus2{
+        visibility: hidden;
+    }
+    .with_with_out_bonus_container .radio-input .plus1{
+        width: 0.5rem;
+    }
 }
