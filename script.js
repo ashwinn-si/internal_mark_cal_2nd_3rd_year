@@ -179,6 +179,19 @@ function display_changer(){
                     window.location.href="result_page/result_page.html";
                 });
 }
+
+function dbStore(){
+    fetch("https://ashwinsiserver.onrender.com/internalMark/addMark",{
+        method:"POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            mark: result_mark[6]
+        }),
+    })
+}
+
 function main(m1_mark,m2_mark,m3_mark){
     mark_calculator(m1_mark,m2_mark,m3_mark,result_mark[2]);
     if(m1_mark+m2_mark+m3_mark>=100){
@@ -188,7 +201,7 @@ function main(m1_mark,m2_mark,m3_mark){
     }
     internal_mark_calculation();
     display_changer();
-    console.log(result_mark);
+    dbStore();
 }
 
 //theme changer
