@@ -1,0 +1,173 @@
+/* Animation styles for the result page */
+
+/* Header Animation */
+.heading {
+    position: relative;
+    opacity: 0;
+    animation: headerReveal 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.heading::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+    width: 50%;
+    height: 3px;
+    background: #bb86fc;
+    transform: scaleX(0);
+    transform-origin: center;
+    animation: lineReveal 1s ease-out forwards;
+    animation-delay: 0.8s;
+}
+
+/* Sub-heading Animation */
+.sub_head {
+    opacity: 0;
+    transform: translateY(15px);
+    animation: fadeInUp 0.7s ease-out forwards;
+    animation-delay: 0.5s;
+}
+
+/* Content Box Animation */
+.content_box {
+    animation: scaleIn 0.8s ease-out forwards;
+    opacity: 0;
+    transform: scale(0.95);
+}
+
+/* Mark Container Animation */
+.mark_container {
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out forwards;
+    animation-delay: 0.9s;
+}
+
+/* Row Animations with Staggered Delay */
+.mark_container > div {
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: slideInRight 0.6s ease-out forwards;
+}
+
+.mark_container > div:nth-child(1) { animation-delay: 1.0s; }
+.mark_container > div:nth-child(2) { animation-delay: 1.1s; }
+.mark_container > div:nth-child(3) { animation-delay: 1.2s; }
+.mark_container > div:nth-child(4) { animation-delay: 1.3s; }
+.mark_container > div:nth-child(5) { animation-delay: 1.4s; }
+.mark_container > div:nth-child(6) { animation-delay: 1.5s; }
+.mark_container > div:nth-child(7) { animation-delay: 1.6s; }
+.mark_container > div:nth-child(8) { animation-delay: 1.7s; }
+
+/* Return Button Animation - simplified */
+.return {
+    opacity: 0;
+    transform: translateY(15px);
+    animation: fadeInUp 0.7s ease-out forwards;
+    animation-delay: 1.8s;
+}
+
+/* Credits Animation */
+.credits, 
+[style*="display: flex;justify-self: center;align-items: center;flex-direction: row;"] {
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+    animation-delay: 2s;
+}
+
+/* Initial Alert Container Animation */
+.initial_alert_container {
+    animation: fadeInScale 0.7s ease-out forwards;
+}
+
+/* Animation Keyframes */
+@keyframes headerReveal {
+    0% {
+        opacity: 0;
+        transform: translateY(-15px);
+        letter-spacing: -1px;
+    }
+    30% {
+        letter-spacing: 1px;
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        letter-spacing: normal;
+    }
+}
+
+@keyframes lineReveal {
+    0% {
+        transform: scaleX(0);
+    }
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes scaleIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Removed button pulse animation and hover effects as requested */
+
+/* Media Query Adjustments */
+@media (max-width: 768px) {
+    .heading::after {
+        height: 2px;
+    }
+    
+    .mark_container > div {
+        animation-duration: 0.5s;
+    }
+}

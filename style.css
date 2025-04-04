@@ -17,7 +17,8 @@
     --theme-font:white;
     --text-shadow-color:white;
     --slider-color:#e8e8e8;
-    --tick-color:var(--light-green)
+    --tick-color:var(--light-green);
+    --radio-size: 20px;
 }
 
 /* Define Root Variables for white Theme */
@@ -39,7 +40,8 @@
     --tomato: rgb(255, 0, 0);
     --text-shadow-color:black;
     --slider-color:#e8e8e8;
-    --tick-color:var(--tomato)
+    --tick-color:var(--tomato);
+    --radio-size: 20px;
 }
 
 /* General Styles */
@@ -354,68 +356,61 @@ input:invalid {
 }
 
 /* Checked Radio Box */
-/* From Uiverse.io by Praashoo7 */ 
 .radio-input {
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    color: var(--container-bg-color);
-  }
-  
-  .radio-input input {
+    height: 40px;
+}
+
+.radio-input input {
     appearance: none;
-    width: 1rem;
-    height: 1rem;
+    width: var(--radio-size);
+    height: var(--radio-size);
     background-color: var(--container-bg-color);
-    box-shadow: inset 2px 5px 10px var(--input-bg-color);
-    border-radius: 5px;
-    transition: .4s ease-in-out;
+    border: 2px solid #ccc;
+    box-shadow: inset 2px 2px 5px var(--input-bg-color);
+    border-radius: 50%;
+    transition: all 0.3s ease;
     position: absolute;
-    top: 35%;
+    cursor: pointer;
+    margin: 0;
+}
+
+.radio-input input:hover {
+    border-color: green;
+}
+
+.radio-input input:checked {
+    border-color: green;
+    box-shadow: none;
+    background-color: lightgreen;
+}
+
+/* Radio button indicator (no tick) */
+.radio-input input:checked {
+    border: 2px solid green;
+}
+
+.radio-input input:checked::after {
+    content: "";
+    position: absolute;
+    width: calc(var(--radio-size) * 0.6);
+    height: calc(var(--radio-size) * 0.6);  
+    
+    border-radius: 50%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-  }
-  
-  .radio-input input:hover {
-    cursor: pointer;
-  }
-  
-  .radio-input .plus1 {
-    position: relative;
-    top:-15%;
-    right: -10%;
-    width: 1rem;
-    height: 0.2em;
-    background-color: var(--tick-color);
-    rotate: -45deg;
-    scale: 0;
-    border-radius: 5px;
-    transition: .4s ease-in-out;
-  }
-  
-  .radio-input .plus2 {
-    position: absolute;
-    width: 0.6rem;
-    height: 0.2em;
-    background-color: var(--tick-color);
-    left:55%;
-    top:100%;
-    transform: rotate(90deg);
-    border-radius: 5px;
-    transition: .4s ease-in-out;
-  }
-  .with_with_out_bonus_container .radio-input .plus1{
-    right: -2%;
-  }
-  .radio-input input:checked {
-    box-shadow: none;
-  }
-  
-  .radio-input input:checked + .plus1 {
-    transform: rotate(180deg);
-    scale: 1;
-  }
+    transition: all 0.2s ease;
+}
+
+/* Hide the original plus elements since we're not using them */
+.radio-input .plus1,
+.radio-input .plus2 {
+    display: none;
+}
 
 * {
     text-transform: capitalize;
@@ -531,15 +526,14 @@ input:invalid {
     .col-3 p{
         margin: 0;
     }
-    .radio-input .plus1{
-        width: 2rem;
-        height: 0.35rem;
-        border-radius: 50%;
+    .radio-input {
+        justify-content: flex-end;            
+        padding-right: 15px;    
     }
-    .radio-input .plus2{
-        visibility: hidden;
+    :root {
+        --radio-size: 18px;
     }
-    .with_with_out_bonus_container .radio-input .plus1{
-        width: 0.5rem;
+    :root {
+        --radio-size: 18px;
     }
 }

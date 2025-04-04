@@ -1,0 +1,205 @@
+/* Page loader removed as requested */
+
+/* Header Animation */
+.header {
+    position: relative;
+    opacity: 0;
+    animation: headerReveal 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+   
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: lineReveal 1s ease-out forwards;
+    animation-delay: 0.8s;
+}
+
+/* Container Animation */
+.sub-container {
+    animation: scaleIn 0.8s ease-out forwards;
+    opacity: 0;
+    transform: scale(0.95);
+    animation-delay: 0.5s;
+}
+
+/* Elements Stagger Animation */
+.mark_container, 
+.extra_activity_container,
+.with_with_out_bonus_container {
+    opacity: 0;
+    transform: translateY(15px);
+    animation: fadeInUp 0.7s ease-out forwards;
+}
+
+.mark_container:nth-child(1) { animation-delay: 0.7s; }
+.mark_container:nth-child(2) { animation-delay: 0.8s; }
+.mark_container:nth-child(3) { animation-delay: 0.9s; }
+.extra_activity_container:nth-child(1) { animation-delay: 1s; }
+.extra_activity_container:nth-child(2) { animation-delay: 1.1s; }
+.extra_activity_container:nth-child(3) { animation-delay: 1.2s; }
+.with_with_out_bonus_container { animation-delay: 0.6s; }
+
+/* Calculate Button Animation */
+#calculate_button {
+    animation: pulse 2s infinite;
+    animation-delay: 1.5s;
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+    animation-delay: 1.3s;
+}
+
+/* Theme Toggle Animation */
+.theme-toggle-container {
+    animation: fadeInRight 0.7s forwards;
+    opacity: 0;
+    transform: translateX(20px);
+    animation-delay: 1s;
+}
+
+/* Keyframes */
+@keyframes headerReveal {
+    0% {
+        opacity: 0;
+        transform: translateY(-15px);
+        letter-spacing: -1px;
+    }
+    30% {
+        letter-spacing: 1px;
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        letter-spacing: normal;
+    }
+}
+
+@keyframes lineReveal {
+    0% {
+        transform: scaleX(0);
+    }
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(187, 134, 252, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(187, 134, 252, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(187, 134, 252, 0);
+    }
+}
+
+/* Result Animation */
+.result-mark-container {
+    transition: all 0.5s ease-out;
+}
+
+.result-mark-container.visible {
+    animation: fadeInScale 0.7s ease-out forwards;
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Radio Button Animation */
+.radio-input input:checked {
+    animation: radioCheck 0.5s forwards;
+}
+
+@keyframes radioCheck {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Input Focus Animation */
+.input_box:focus {
+    animation: inputFocus 0.8s ease-out;
+}
+
+@keyframes inputFocus {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.03);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .header::after {
+        height: 2px;
+    }
+}
