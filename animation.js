@@ -1,8 +1,5 @@
 // Page loader removed as requested
-document.addEventListener('DOMContentLoaded', function() {
-
-    fetch("https://ashwinsiserver.onrender.com/internalMark/addSession")
-    
+document.addEventListener('DOMContentLoaded', function() {    
     // Add visibility class to result container when it's shown
     const originalDisplayChanger = display_changer;
     if (typeof display_changer === 'function') {

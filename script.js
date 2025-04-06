@@ -187,7 +187,9 @@ function dbStore(){
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            mark: result_mark[6]
+            mark: result_mark[6],
+            nptel: result_mark[3] ? "yes" : "no",
+            bonus: result_mark[2] ? "yes" : "no"
         }),
     })
 }
