@@ -197,6 +197,13 @@ body {
     font-weight: 500;
     border: solid 1px;
 }
+@media (max-width: 768px){
+    .pop_up_message_box{
+        left:0%;
+        padding:20px;
+        font-size: 1rem;
+    }
+}
 
 .pop_up_message_box p {
     margin: 0;
@@ -518,7 +525,7 @@ input:invalid {
     .pop_up_message_box {
         width: 350px;
         font-size: 1.2rem;
-        left: 4%;
+        left: 1%;
     }
     .mark_container{
         font-size: 1.2rem;
