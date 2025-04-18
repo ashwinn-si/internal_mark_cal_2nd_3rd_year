@@ -74,36 +74,14 @@ function celebration_effect(){
     },3000);
 }
 
-document.getElementById("calculate_button").addEventListener('click',()=>{
-    result_mark = [0, 0, 1, 0, 0, 0, 0, 0];
-    document.getElementById('special_case_text').innerHTML=``;
-    let m1_mark=parseInt(document.getElementById('mark_m1').value)
-    let m2_mark=parseInt(document.getElementById('mark_m2').value)
-    let m3_mark=parseInt(document.getElementById('mark_m3').value)
-    if(input_box_error_handler(m1_mark,'mark_m1') && input_box_error_handler(m2_mark,'mark_m2') && input_box_error_handler(m3_mark,'mark_m3') && radio_button_checker('yes_bonus','no_bonus') && radio_button_checker('nptel_0','nptel_4', 'nptel_8') && radio_button_checker('course_yes','course_no') &&radio_button_checker('extra_yes','extra_no')){
-        console.log(m1_mark);
-        const bonus=document.getElementsByName('bonus');
-        bonus.forEach((element)=>{
-            if(element.checked){
-                if(element.value==='yes'){
-                    result_mark[2]=true;
-                }
-            }
-        })
-        main(m1_mark,m2_mark,m3_mark);
-        celebration_effect();
-        document.getElementById('nptel_alert_container').style.visibility='visible';
-    }
-})
-
 function mark_calculator(m1_mark,m2_mark,m3_mark,bonus_flag){
-    let bonus_mark=(bonus_flag)?1.5:1;
-    let first_10=((m1_mark*bonus_mark)+(m2_mark*bonus_mark))*0.05;
-    let second_10=(m3_mark*bonus_mark)*0.1;
-    first_10=(first_10>10)?10:first_10;
-    second_10=(second_10>10)?10:second_10;
-    result_mark[0]=parseFloat(first_10.toFixed(2));
-    result_mark[1]=parseFloat(second_10.toFixed(2));
+    let bonus_mark = (bonus_flag) ? 1.5 : 1;
+    let first_10 = ((m1_mark*bonus_mark) + (m2_mark*bonus_mark))*0.05;
+    let second_10 = (m3_mark*bonus_mark) * 0.1;
+    first_10 = (first_10 > 10) ? 10 : first_10;
+    second_10 = (second_10 > 10) ? 10 : second_10;
+    result_mark[0] = parseFloat(first_10.toFixed(2));
+    result_mark[1] = parseFloat(second_10.toFixed(2));
 }
 
 function extra_activity_cal(){
@@ -119,22 +97,22 @@ function extra_activity_cal(){
     course.forEach((element)=>{
         if(element.checked){
             if(element.value==='yes'){
-                result_mark[4] = 7;           // update online certi in result array
+                result_mark[4] = 7; // ONLINE CERTIFICATE MARKS
             }
         }
     })
     extra.forEach((element)=>{
         if(element.checked){
             if(element.value==='yes'){
-                result_mark[5] = 5;       // update extra work in result array
+                result_mark[5] = 5;// EXTRA WORK CERTIFICATE MARKS
             }
         }
     })
 }
+
 //first_10,second_10,bonus,nptel,course,extra,final_result,external
 function internal_mark_calculation(){
     let result=result_mark[0]+result_mark[1];
-    // console.log("UR NPTEL MARK = ", result_mark[3])
     if(result_mark[3]){ //nptel
         result += result_mark[3];
     }
@@ -147,6 +125,7 @@ function internal_mark_calculation(){
     result_mark[6]=parseFloat(result.toFixed(2));
     external_mark_calculation()
 }
+
 function external_mark_calculation(){ //calcualtes the external mark
     let external_mark = 91;
     if (result_mark[6] >= 23) {
@@ -204,19 +183,6 @@ function display_changer(){
                 });
 }
 
-function dbStore(){
-    fetch("https://ashwinsiserver.onrender.com/internalMark/addMark",{
-        method:"POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            mark: result_mark[6],
-            nptel: result_mark[3] ,
-            bonus: result_mark[2] ? "yes" : "no"
-        }),
-    })
-}
 
 function main(m1_mark,m2_mark,m3_mark){
     mark_calculator(m1_mark,m2_mark,m3_mark,result_mark[2]);
@@ -230,6 +196,49 @@ function main(m1_mark,m2_mark,m3_mark){
     dbStore();
 }
 
+document.getElementById("calculate_button").addEventListener("click", () => {
+    result_mark = [0, 0, 1, 0, 0, 0, 0, 0];
+    document.getElementById("special_case_text").innerHTML = ``;
+    let m1_mark = parseInt(document.getElementById("mark_m1").value);
+    let m2_mark = parseInt(document.getElementById("mark_m2").value);
+    let m3_mark = parseInt(document.getElementById("mark_m3").value);
+    if (
+        input_box_error_handler(m1_mark, "mark_m1") &&
+        input_box_error_handler(m2_mark, "mark_m2") &&
+        input_box_error_handler(m3_mark, "mark_m3") &&
+        radio_button_checker("yes_bonus", "no_bonus") &&
+        radio_button_checker("nptel_0", "nptel_4", "nptel_8") &&
+        radio_button_checker("course_yes", "course_no") &&
+        radio_button_checker("extra_yes", "extra_no")
+    ) {
+        const bonus = document.getElementsByName("bonus");
+        bonus.forEach((element) => {
+            if (element.checked) {
+                if (element.value === "yes") {
+                    result_mark[2] = true;
+                }
+            }
+        });
+        main(m1_mark, m2_mark, m3_mark);
+        celebration_effect();
+    }
+});
+
+
+function dbStore(){
+    fetch("https://ashwinsiserver.onrender.com/internalMark/addMark",{
+        method:"POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            mark: result_mark[6],
+            nptel: result_mark[3] === 8 ? "yes" : "no",
+            bonus: result_mark[2] ? "yes" : "no"
+        }),
+    })
+}
+
 //theme changer
 // Define the toggle switch and initialize the theme variable
 const themeToggle = document.querySelector('.switch .input');
@@ -238,18 +247,13 @@ const themeToggle = document.querySelector('.switch .input');
 function toggleTheme() {
     let newTheme;
 
-    // Check the toggle switch and set the theme
+   
     if (themeToggle.checked) {
-        // If toggle is on, switch to dark theme by default
         newTheme = 'dark';
     } else {
-        // Otherwise, switch to light or green theme based on current state
         const currentTheme = document.documentElement.getAttribute('data-theme');
         newTheme = "light";
     }
-
-    // Apply the new theme by setting a data attribute on the HTML element
-    console.log("Switching to theme:", newTheme);
     document.documentElement.setAttribute('data-theme', newTheme);
 }
 
