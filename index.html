@@ -39,16 +39,6 @@
             <p>Enter ther mark<span> WITHOUT 1.5</span></p>
             <button onclick="document.querySelector('.pop_up_message_box').style.visibility='hidden'">continue</button>
         </div>
-        <div class="pop_up_message_box nptel_pop_up_message" id="nptel_alert_container">
-            <p >As few <span>Departments</span> are <span>awarding</span><br>
-                0 marks <span style="font-size: 2rem;">&#8594;</span> NOT register NPTEL<br>
-                4 marks <span style="font-size: 2rem;">&#8594;</span> failing NPTEL<br>
-                8 marks <span style="font-size: 2rem;">&#8594;</span> passing NPTEL<br>
-                for <span>UNIFORMITY</span><br>
-                0 marks <span style="font-size: 2rem;">&#8594;</span> failing NPTEL<br>
-                8 marks <span style="font-size: 2rem;">&#8594;</span> passing NPTEL</p>
-            <button id="initial_pop_up_return_button" onclick="document.getElementById('nptel_alert_container').style.visibility='hidden'">continue</button>
-        </div>
         <div class="container sub-container col-12 col-md-6">
             <div class="lottie_container" id="congrs-lottie-animation">
             </div>          
@@ -104,23 +94,48 @@
                 <div class="col-6" style="font-weight: 500;">Enter mark scored in M3</div>
                 <div class="col-6"><input type="number" min=0 max=100 id="mark_m3" class="input_box" placeholder="Enter Mark"></div>
             </div>
+            
+            
+            
             <div class="row extra_activity_container align-items-center">
                 <div class="col-4" style="font-weight: 500;">NPTEL</div>
-                <div class="col-1 d-flex justify-content-center radio-input">
-                    <input type="radio" name="nptel" value="yes" id="nptel_yes">
-                    <div class="plus1">
-                        <div class="plus2"></div>
+                <div class="col-1"></div>
+                <div class="col-2">
+                    <div class="d-flex align-items-center position-relative">
+                        <div class="radio-input position-relative me-2">
+                            <input type="radio" name="nptel" value="0" id="nptel_0" class="position-absolute opacity-0">
+                            <div class="plus1 position-relative">
+                                <div class="plus2"></div>
+                            </div>
+                        </div>
+                        <p style="position: absolute; left:20% ; top:15% ;font-weight: 400; margin: 0;">0</p>
                     </div>
                 </div>
-                <div class="col-3"><p style="font-weight: 400; margin: 0;">Pass</p></div>
-                <div class="col-1 d-flex justify-content-center radio-input">
-                    <input type="radio" name="nptel" value="no" id="nptel_no">
-                    <div class="plus1">
-                        <div class="plus2"></div>
+                <div class="col-2">
+                    <div class="d-flex align-items-center position-relative">
+                        <div class="radio-input position-relative me-2">
+                            <input type="radio" name="nptel" value="4" id="nptel_4">
+                            <div class="plus1 position-relative">
+                                <div class="plus2"></div>
+                            </div>
+                        </div>
+                        <p style="position: absolute; left:20% ; top:15% ;font-weight: 400; margin: 0;">4</p>
                     </div>
                 </div>
-                <div class="col-3"><p style="font-weight: 400; margin: 0;">Fail</p></div>
+                <div class="col-2">
+                    <div class="d-flex align-items-center position-relative">
+                        <div class="radio-input position-relative me-2">
+                             <input type="radio" name="nptel" value="8" id="nptel_8">
+                            <div class="plus1 position-relative">
+                                <div class="plus2"></div>
+                            </div>
+                        </div>
+                        <p style="position: absolute; left:20% ; top:15% ;font-weight: 400; margin: 0;">8</p>
+                    </div>
+                </div>
             </div>
+
+            
             <div class="row extra_activity_container align-items-center">
                 <div class="col-4" style="font-weight: 500;">Online Course</div>
                 <div class="col-1 d-flex justify-content-center radio-input">
@@ -165,7 +180,7 @@
                     <p
                         style="font-weight: normal; font-size: 1.5rem; margin: 0; color: var(--primary-font-color); font-family: 'New Amsterdam';">
                         Made with
-                        <span class="material-symbols-outlined" style="color: red; vertical-align: middle; font-size:1.5rem">
+                        <span class="material-symbols-outlined" style="color: red; vertical-align: middle; font-size:1.5rem;">
                             favorite
                         </span>
                         Ashwin S I [CSE]
