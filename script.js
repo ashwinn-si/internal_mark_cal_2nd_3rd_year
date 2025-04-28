@@ -10,11 +10,11 @@
                  */         
 
 
-let result_mark=[0, 0, 1, 0, 0, 0, 0, 0];//first_10,second_10,bonus,nptel,course,extra,final,external
+let result_mark=[0, 0, false, 0, 0, 0, 0, 0];//first_10,second_10,bonus,nptel,course,extra,final,external
 /* 
     0 -> first_10 [0 to 10]
     1 -> second_10 [0 to 10]
-    2 -> bonus [1 or 1.5]
+    2 -> bonus [true or false]
     3 -> NPTEL [0 or 4 or 8]
     4 -> course [0 or 7]
     5 -> extra (competiton win or mini project) [0 or 5]
@@ -43,7 +43,7 @@ function radio_button_checker(...args) {
         }
     }
 
-    if(isINVALID){  // enters when there is button checked.
+    if(isINVALID){  // enters when there is no button checked.
         navigator.vibrate(200);
         for(let i=0; i<args.length; i++){
             const container = document.getElementById(`${args[i]}`);
@@ -197,7 +197,7 @@ function main(m1_mark,m2_mark,m3_mark){
 }
 
 document.getElementById("calculate_button").addEventListener("click", () => {
-    result_mark = [0, 0, 1, 0, 0, 0, 0, 0];
+    result_mark = [0, 0, false, 0, 0, 0, 0, 0];
     document.getElementById("special_case_text").innerHTML = ``;
     let m1_mark = parseInt(document.getElementById("mark_m1").value);
     let m2_mark = parseInt(document.getElementById("mark_m2").value);
@@ -216,6 +216,9 @@ document.getElementById("calculate_button").addEventListener("click", () => {
             if (element.checked) {
                 if (element.value === "yes") {
                     result_mark[2] = true;
+                }
+                else{
+                    result_mark[2] = false;
                 }
             }
         });
