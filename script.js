@@ -229,7 +229,7 @@ document.getElementById("calculate_button").addEventListener("click", () => {
 
 
 function dbStore(m1_mark, m2_mark, m3_mark) {
-  fetch("https://ashwinsiserver.onrender.com/internalMark/addMark", {
+  fetch("https://api.ashwinsi.in/personal-server/internalMark/addMark", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
