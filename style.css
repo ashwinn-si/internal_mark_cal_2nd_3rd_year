@@ -520,6 +520,48 @@ input:invalid {
         font-size: 1.25rem;
     }
 }
+
+/* Heart pulse animation */
+.heart-pulse {
+    animation: pulse-heart 1.5s ease-in-out infinite;
+    display: inline-block;
+    cursor: pointer;
+}
+
+@keyframes pulse-heart {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Creator link styling */
+.creator-link {
+    color: var(--primary-font-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.creator-link:hover {
+    color: var(--highlight-color);
+    text-decoration: underline;
+    transform: scale(1.05);
+}
+
+.creator-link:visited {
+    color: var(--primary-font-color);
+}
+
+.creator-link:active {
+    color: var(--highlight-color);
+}
+
 /* Responsive Styling for Mobile */
 @media (max-width: 768px) {
     .pop_up_message_box {

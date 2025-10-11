@@ -1,0 +1,40 @@
+# Robots.txt for St. Joseph's College Internal Mark Calculator
+# Website: https://internalmarkcal.ashwinsi.in
+
+User-agent: *
+Allow: /
+
+# Allow all major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+# Disallow certain file types that don't need indexing
+Disallow: *.js$
+Disallow: *.css$
+Disallow: *.json$
+
+# Allow specific important files
+Allow: /index.html
+Allow: /result_page/result_page.html
+Allow: /assets/web_icon.png
+
+# Sitemap location
+Sitemap: https://internalmarkcal.ashwinsi.in/sitemap.xml
+
+# Crawl delay (1 second between requests)
+Crawl-delay: 1
+
+# Host directive (preferred domain)
+Host: https://internalmarkcal.ashwinsi.in
