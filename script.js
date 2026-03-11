@@ -49,6 +49,16 @@ function radio_button_checker(...args) {
       const container = document.getElementById(`${args[i]}`);
       container.classList.add('vibrate');
       setTimeout(() => {
+
+        // Send analytics request on page load
+        function sendAnalyticsRequest() {
+          let trafficType = window.trafficType || "normal";
+          fetch(`https://api.ashwinsi.in/personal-server/website/add-analytics?trafficType=${trafficType}&website=internalmarkcalculator`, {
+            method: "GET"
+          });
+        }
+
+        window.addEventListener("DOMContentLoaded", sendAnalyticsRequest);
         container.classList.remove('vibrate');
       }, 400);
     }
