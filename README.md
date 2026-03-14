@@ -22,4 +22,3 @@ This website also provides the mark needed in the external exam,
 giving students a clear idea of the required score before attending 
 the exam.
 
-

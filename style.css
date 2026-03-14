@@ -593,3 +593,41 @@ input:invalid {
         --radio-size: 18px;
     }
 }
+
+/* Custom Radio Button Styles */
+.custom-radio-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    color: var(--primary-font-color);
+}
+/* font-size: 0.9rem; padding: 0.4rem 1rem; font-weight: 500; */
+
+.custom-radio-label {
+    cursor: pointer;
+    padding: 0.4rem 1rem;
+    border: 2px solid var(--highlight-color);
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.1s ease;
+    user-select: none;
+    color: var(--primary-font-color);
+}
+
+.custom-radio-input {
+    display: none;
+}
+
+.custom-radio-input:checked + .custom-radio-label {
+    background-color: var(--highlight-color);
+    color: white !important;
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.max-mark-text {
+    color: var(--highlight-color);
+    font-size: 1rem;
+    font-weight: bold;
+}
