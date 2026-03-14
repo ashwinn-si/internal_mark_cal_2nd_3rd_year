@@ -156,21 +156,16 @@
                 
             </div>
             
-            <div class="row with_with_out_bonus_container justify-content-center" style="padding-top: 0px;">
-                <div class="col-2 radio-input">
-                    <input type="radio" name="bonus" value="yes" id="yes_bonus">
-                    <div class="plus1">
-                        <div class="plus2"></div>
+            <div class="row with_with_out_bonus_container align-items-center justify-content-center" style="padding-top: 0px; margin-bottom: 1.5rem;">
+                <div class="col-12">
+                    <div class="custom-radio-group">
+                        <input type="radio" class="custom-radio-input" name="bonus" value="yes" id="yes_bonus" checked>
+                        <label class="custom-radio-label" for="yes_bonus" style="font-size: 0.9rem; padding: 0.4rem 1rem; font-weight: 500;">With Bonus</label>
+
+                        <input type="radio" class="custom-radio-input" name="bonus" value="no" id="no_bonus">
+                        <label class="custom-radio-label" for="no_bonus" style="font-size: 0.9rem; padding: 0.4rem 1rem; font-weight: 500;">Without Bonus</label>
                     </div>
                 </div>
-                <div class="col-4" style="font-weight: 500;">With Bonus</div>
-                <div class="col-2 radio-input">
-                    <input type="radio" name="bonus" value="no" id="no_bonus">
-                    <div class="plus1">
-                        <div class="plus2"></div>
-                    </div>
-                </div>
-                <div class="col-4 " style="font-weight: 500;">Without Bonus</div>
             </div>
             <div class="row mark_container">
                 <div class="col-6" style="font-weight: 500;">Enter mark scored in M1</div>
@@ -187,79 +182,66 @@
             
             
             
-            <div class="row extra_activity_container align-items-center">
-                <div class="col-4" style="font-weight: 500;">NPTEL</div>
-                <div class="col-1"></div>
-                <div class="col-2">
-                    <div class="d-flex align-items-center position-relative">
-                        <div class="radio-input position-relative me-2">
-                            <input type="radio" name="nptel" value="0" id="nptel_0" class="position-absolute opacity-0">
-                            <div class="plus1 position-relative">
-                                <div class="plus2"></div>
-                            </div>
-                        </div>
-                        <p style="position: absolute; left:20% ; top:15% ;font-weight: 400; margin: 0;">0</p>
-                    </div>
-                </div>
-                <div class="col-2">
-                    <div class="d-flex align-items-center position-relative">
-                        <div class="radio-input position-relative me-2">
-                            <input type="radio" name="nptel" value="4" id="nptel_4">
-                            <div class="plus1 position-relative">
-                                <div class="plus2"></div>
-                            </div>
-                        </div>
-                        <p style="position: absolute; left:20% ; top:15% ;font-weight: 400; margin: 0;">4</p>
-                    </div>
-                </div>
-                <div class="col-2">
-                    <div class="d-flex align-items-center position-relative">
-                        <div class="radio-input position-relative me-2">
-                             <input type="radio" name="nptel" value="8" id="nptel_8">
-                            <div class="plus1 position-relative">
-                                <div class="plus2"></div>
-                            </div>
-                        </div>
-                        <p style="position: absolute; left:20% ; top:15% ;font-weight: 400; margin: 0;">8</p>
+            <div class="row mark_container align-items-center mt-3">
+                <div class="col-12">
+                    <div class="custom-radio-group">
+                      <input type="radio" class="custom-radio-input" name="student_category" value="general" id="cat_general" checked onchange="category_changer()">
+                        <label class="custom-radio-label" for="cat_general">General</label>
+                        <input type="radio" class="custom-radio-input" name="student_category" value="hope_elite" id="cat_hope_elite" onchange="category_changer()">
+                        <label class="custom-radio-label" for="cat_hope_elite">HOPE Elite</label>
+
+                        <input type="radio" class="custom-radio-input" name="student_category" value="pep" id="cat_pep" onchange="category_changer()">
+                        <label class="custom-radio-label" for="cat_pep">PEP / Non-Elite / Others</label>
+
+                        
                     </div>
                 </div>
             </div>
 
-            
-            <div class="row extra_activity_container align-items-center">
-                <div class="col-4" style="font-weight: 500;">Online Course</div>
-                <div class="col-1 d-flex justify-content-center radio-input">
-                    <input type="radio" name="course" value="yes" id="course_yes">
-                    <div class="plus1">
-                        <div class="plus2"></div>
-                    </div>
+            <!-- Categories Containers -->
+            <div id="container_hope_elite" style="display: none;">
+                <div class="row mark_container">
+                    <div class="col-7" style="font-weight: 500;">International Certification <span class="max-mark-text">(Max 7)</span></div>
+                    <div class="col-5"><input type="number" min="0" max="7" id="he_cert" class="input_box" placeholder="Max 7" value="0"></div>
                 </div>
-                <div class="col-3"><p style="font-weight: 400; margin: 0;">Done</p></div>
-                <div class="col-1 d-flex justify-content-center radio-input">
-                    <input type="radio" name="course" value="no" id="course_no">
-                    <div class="plus1">
-                        <div class="plus2"></div>
-                    </div>
+                <div class="row mark_container">
+                    <div class="col-7" style="font-weight: 500;">Assessment <span class="max-mark-text">(Max 6)</span></div>
+                    <div class="col-5"><input type="number" min="0" max="6" id="he_assessment" class="input_box" placeholder="Max 6" value="0"></div>
                 </div>
-                <div class="col-3"><p style="font-weight: 400; margin: 0;">Not Done</p></div>
+                <div class="row mark_container">
+                    <div class="col-7" style="font-weight: 500;">Performance & Activities <span class="max-mark-text">(Max 7)</span></div>
+                    <div class="col-5"><input type="number" min="0" max="7" id="he_perf" class="input_box" placeholder="Max 7" value="0"></div>
+                </div>
             </div>
-            
-            <div class="row extra_activity_container align-items-center">
-                <div class="col-4" style="font-weight: 500;">Extra Activity</div>
-                <div class="col-1 d-flex justify-content-center radio-input">
-                    <input type="radio" name="extra" value="yes" id="extra_yes">
-                    <div class="plus1">
-                        <div class="plus2"></div>
-                    </div>
+
+            <div id="container_pep" style="display: none;">
+                <div class="row mark_container">
+                    <div class="col-7" style="font-weight: 500;">Int. Certification / Course  <span class="max-mark-text">(Max 7)</span></div>
+                    <div class="col-5"><input type="number" min="0" max="7" id="pep_cert" class="input_box" placeholder="Max 7" value="0"></div>
                 </div>
-                <div class="col-3"><p style="font-weight: 400; margin: 0;">Done</p></div>
-                <div class="col-1 d-flex justify-content-center radio-input">
-                    <input type="radio" name="extra" value="no" id="extra_no">
-                    <div class="plus1">
-                        <div class="plus2"></div>
-                    </div>
+                <div class="row mark_container">
+                    <div class="col-7" style="font-weight: 500;">Assessment <span class="max-mark-text">(Max 6)</span></div>
+                    <div class="col-5"><input type="number" min="0" max="6" id="pep_assessment" class="input_box" placeholder="Max 6" value="0"></div>
                 </div>
-                <div class="col-3"><p style="font-weight: 400; margin: 0;">Not Done</p></div>
+                <div class="row mark_container">
+                    <div class="col-7" style="font-weight: 500;"> NPTEL<span class="max-mark-text">(Max 7)</span></div>
+                    <div class="col-5"><input type="number" min="0" max="7" id="pep_nptel" class="input_box" placeholder="Max 7" value="0"></div>
+                </div>
+            </div>
+
+            <div id="container_general" style="display: block;">
+                <div class="row mark_container">
+                    <div class="col-7" style="font-weight: 500;">NPTEL <span class="max-mark-text">(Max 8)</span></div>
+                    <div class="col-5"><input type="number" min="0" max="8" id="gen_nptel" class="input_box" placeholder="Max 8" value="0"></div>
+                </div>
+                <div class="row mark_container">
+                    <div class="col-7" style="font-weight: 500;">Certificate Course <span class="max-mark-text">(Max 7)</span></div>
+                    <div class="col-5"><input type="number" min="0" max="7" id="gen_cert" class="input_box" placeholder="Max 7" value="0"></div>
+                </div>
+                <div class="row mark_container">
+                    <div class="col-7" style="font-weight: 500;">Workshop / Sports / Intern / Extra <span class="max-mark-text">(Max 5)</span></div>
+                    <div class="col-5"><input type="number" min="0" max="5" id="gen_extra" class="input_box" placeholder="Max 5" value="0"></div>
+                </div>
             </div>            
             <div class="row justify-content-center "><button  id="calculate_button">CALCULATE</button></div>
             <div class="row justify-content-center" id="special_case_text"></div>
