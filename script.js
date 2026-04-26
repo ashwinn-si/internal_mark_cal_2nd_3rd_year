@@ -277,29 +277,32 @@ document.getElementById('calculate_button').addEventListener('click', () => {
   const hopeElite = document.getElementById('cat_hope_elite').checked;
   const pep = document.getElementById('cat_pep').checked;
 
+  let pt1, pt2, pt3;
   if (hopeElite) {
-    let pt1 = parseFloat(document.getElementById('he_cert').value) || 0;
-    let pt2 = parseFloat(document.getElementById('he_assessment').value) || 0;
-    let pt3 = parseFloat(document.getElementById('he_perf').value) || 0;
+    pt1 = parseFloat(document.getElementById('he_cert').value) || 0;
+    pt2 = parseFloat(document.getElementById('he_assessment').value) || 0;
+    pt3 = parseFloat(document.getElementById('he_perf').value) || 0;
     isValid = input_box_error_handler(pt1, 'he_cert', 7) && isValid;
     isValid = input_box_error_handler(pt2, 'he_assessment', 6) && isValid;
     isValid = input_box_error_handler(pt3, 'he_perf', 7) && isValid;
   } else if (pep) {
-    let pt1 = parseFloat(document.getElementById('pep_cert').value) || 0;
-    let pt2 = parseFloat(document.getElementById('pep_assessment').value) || 0;
-    let pt3 = parseFloat(document.getElementById('pep_nptel').value) || 0;
+    pt1 = parseFloat(document.getElementById('pep_cert').value) || 0;
+    pt2 = parseFloat(document.getElementById('pep_assessment').value) || 0;
+    pt3 = parseFloat(document.getElementById('pep_nptel').value) || 0;
     isValid = input_box_error_handler(pt1, 'pep_cert', 7) && isValid;
     isValid = input_box_error_handler(pt2, 'pep_assessment', 6) && isValid;
     isValid = input_box_error_handler(pt3, 'pep_nptel', 7) && isValid;
   } else {
-    let pt1 = parseFloat(document.getElementById('gen_nptel').value) || 0;
-    let pt2 = parseFloat(document.getElementById('gen_cert').value) || 0;
-    let pt3 = parseFloat(document.getElementById('gen_extra').value) || 0;
+    pt1 = parseFloat(document.getElementById('gen_nptel').value) || 0;
+    pt2 = parseFloat(document.getElementById('gen_cert').value) || 0;
+    pt3 = parseFloat(document.getElementById('gen_extra').value) || 0;
     isValid = input_box_error_handler(pt1, 'gen_nptel', 8) && isValid;
     isValid = input_box_error_handler(pt2, 'gen_cert', 7) && isValid;
     isValid = input_box_error_handler(pt3, 'gen_extra', 5) && isValid;
   }
-
+  result_mark.pt1 = pt1;
+  result_mark.pt2 = pt2;
+  result_mark.pt3 = pt3;
   if (isValid) {
     const bonus = document.getElementsByName('bonus');
     bonus.forEach(element => {
