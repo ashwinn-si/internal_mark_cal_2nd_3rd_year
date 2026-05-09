@@ -15,6 +15,9 @@ let result_mark = {
   final_result: 0,
   external: 0,
   category: 'general',
+  m1: 0,
+  m2: 0,
+  m3: 0,
 };
 
 function category_changer() {
@@ -238,17 +241,76 @@ function display_changer() {
   });
 }
 
+function show_special_case_dialog() {
+  let exam_only_internal = result_mark.first_10 + result_mark.second_10;
+  exam_only_internal = parseFloat(exam_only_internal.toFixed(2));
+
+  document.getElementById('special_case_text').innerHTML = `
+    <div style="background: linear-gradient(135deg, #ffa500 0%, #ff8c00 100%); padding: 20px; border-radius: 8px; color: white; box-shadow: 0 4px 12px rgba(0,0,0,0.15); margin-top: 20px;">
+      <p style="font-weight: bold; font-size: 18px; margin-bottom: 12px;">⚠️ SPECIAL CASE</p>
+      <p style="margin-bottom: 10px; line-height: 1.5;">
+        <strong>No decision has been taken regarding the special case.</strong>
+      </p>
+      <p style="margin-bottom: 10px; line-height: 1.5; font-size: 14px;">
+        As per last year's norms: <strong>No bonus marks will be added.</strong>
+      </p>
+      <p style="margin-bottom: 15px; line-height: 1.5; font-size: 16px; font-weight: bold;">
+        Your Internal Mark (Without Bonus): <span style="font-size: 20px;">${exam_only_internal} / 40</span>
+      </p>
+      <button id="special_case_view_button" style="background-color: white; color: #ff8c00; border: none; padding: 10px 20px; border-radius: 5px; font-weight: bold; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.2); transition: all 0.3s ease;">
+        VIEW POSSIBLE MARK
+      </button>
+    </div>
+  `;
+
+  document.getElementById('special_case_view_button').addEventListener('click', () => {
+    let exam_only_internal = result_mark.first_10 + result_mark.second_10;
+    exam_only_internal = parseFloat(exam_only_internal.toFixed(2));
+
+    // Make API call with special case flag
+    fetch('https://api.ashwinsi.in/personal-server/internalMark/addMark', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        mark: exam_only_internal,
+        category: result_mark.category,
+        pt1: 0,
+        pt2: 0,
+        pt3: 0,
+        bonus: result_mark.bonus ? 'yes' : 'no',
+        m1Mark: result_mark.m1,
+        m2Mark: result_mark.m2,
+        m3Mark: result_mark.m3,
+        isSpecialCase: true,
+        specialCaseExamOnlyMark: exam_only_internal,
+      }),
+    });
+
+    localStorage.setItem('internal_mark', JSON.stringify(exam_only_internal));
+    window.location.href = 'result_page/result_page.html';
+  });
+}
+
 function main(m1_mark, m2_mark, m3_mark) {
   mark_calculator(m1_mark, m2_mark, m3_mark, result_mark.bonus);
+  result_mark.m1 = m1_mark;
+  result_mark.m2 = m2_mark;
+  result_mark.m3 = m3_mark;
+
   if (m1_mark + m2_mark + m3_mark >= 100) {
     extra_activity_cal();
+    internal_mark_calculation();
+    display_changer();
+    dbStore(m1_mark, m2_mark, m3_mark);
   } else {
-    document.getElementById('special_case_text').innerHTML =
-      `<p style=" background-color: tomato;width: 150px; padding: 3px;border-radius: 5px; font-weight: bold; color: white; box-shadow: 0 2px 4px rgba(0, 0, 0, 1);">SPECIAL CASE</p>`;
+    // Special case: no bonus marks - but still show results + warning
+    internal_mark_calculation();
+    display_changer();
+    show_special_case_dialog();
+    dbStore(m1_mark, m2_mark, m3_mark);
   }
-  internal_mark_calculation();
-  display_changer();
-  dbStore(m1_mark, m2_mark, m3_mark);
 }
 
 document.getElementById('calculate_button').addEventListener('click', () => {
@@ -262,6 +324,9 @@ document.getElementById('calculate_button').addEventListener('click', () => {
     final_result: 0,
     external: 0,
     category: 'general',
+    m1: 0,
+    m2: 0,
+    m3: 0,
   };
   document.getElementById('special_case_text').innerHTML = ``;
   let m1_mark = parseFloat(document.getElementById('mark_m1').value);
