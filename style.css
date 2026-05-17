@@ -311,7 +311,7 @@ body {
   font-size: 1.1rem;
   color: var(--primary-font-color);
   margin: 16px 0;
-  background-color: var(--container-bg-color);
+
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -704,7 +704,3 @@ input:invalid {
   font-size: 1rem;
   font-weight: 700;
 }
-
-/* ===== COMPREHENSIVE RESPONSIVE MEDIA QUERIES ===== */
-
-/* Tablet & Medium Screens (768px and below) */
