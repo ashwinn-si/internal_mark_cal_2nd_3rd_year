@@ -201,38 +201,48 @@ function display_changer() {
   }
 
   document.querySelector('.result-mark-container').style.visibility = 'visible';
-  document.querySelector('.result-mark-container').innerHTML = `<div class="row">
-                    <p class="result-mark-header">${bonus_or_not}</p>
-                </div>
-                <div class="row">
-                    <div class="col"><p >MODEL 1 & 2 </p></div>
-                    <div class="col"><p>${result_mark.first_10} / 10</p></div>
-                </div>
-                <div class="row">
-                    <div class="col"><p>MODEL 3 </p></div>
-                    <div class="col"><p>${result_mark.second_10} / 10</p></div>
-                </div>
-                <div class="row">
-                    <div class="col"><p>${label1} </p></div>
-                    <div class="col"><p>${pt1} / ${max1}</p></div>
-                </div>
-                <div class="row">
-                    <div class="col"><p>${label2} </p></div>
-                    <div class="col"><p>${pt2} / ${max2}</p></div>
-                </div>
-                <div class="row">
-                    <div class="col"><p>${label3} </p></div>
-                    <div class="col"><p>${pt3} / ${max3}</p></div>
-                </div>
-                <div class="row">
-                    <div class="col"><p>TOTAL INTERNAL</p></div>
-                    <div class="col"><p>${result_mark.final_result} / 40</p></div>
-                </div>
-                <div class="row">
-                    <div class="col"><p>MARK TO PASS </p></div>
-                    <div class="col"><p>${result_mark.external} / 100</p></div>
-                </div>
-                <button id="possible-mark-button">POSSIBLE MARK</button>`;
+  document.querySelector('.result-mark-container').innerHTML = `
+    
+      <p style="font-weight: 700; font-size: 18px; margin: 0 0 24px 0; color: #fff; text-align: center;">${bonus_or_not}</p>
+
+      <div style="space-y: 0;">
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #2d2d2d;">
+          <span style="font-size: 14px; color: #a0a0a0; font-weight: 500;">MODEL 1 & 2</span>
+          <span style="font-size: 16px; color: #fff; font-weight: 600;">${result_mark.first_10} / 10</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #2d2d2d;">
+          <span style="font-size: 14px; color: #a0a0a0; font-weight: 500;">MODEL 3</span>
+          <span style="font-size: 16px; color: #fff; font-weight: 600;">${result_mark.second_10} / 10</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #2d2d2d;">
+          <span style="font-size: 14px; color: #a0a0a0; font-weight: 500;">${label1}</span>
+          <span style="font-size: 16px; color: #fff; font-weight: 600;">${pt1} / ${max1}</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #2d2d2d;">
+          <span style="font-size: 14px; color: #a0a0a0; font-weight: 500;">${label2}</span>
+          <span style="font-size: 16px; color: #fff; font-weight: 600;">${pt2} / ${max2}</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #2d2d2d;">
+          <span style="font-size: 14px; color: #a0a0a0; font-weight: 500;">${label3}</span>
+          <span style="font-size: 16px; color: #fff; font-weight: 600;">${pt3} / ${max3}</span>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px 0; border-top: 2px solid #ff8c00; border-bottom: 2px solid #ff8c00; margin: 12px 0;">
+          <span style="font-size: 15px; color: #fff; font-weight: 700;">TOTAL INTERNAL</span>
+          <span style="font-size: 18px; color: #ff8c00; font-weight: 700;">${result_mark.final_result} / 40</span>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 0;">
+          <span style="font-size: 14px; color: #a0a0a0; font-weight: 500;">MARK TO PASS</span>
+          <span style="font-size: 16px; color: #fff; font-weight: 600;">${result_mark.external} / 100</span>
+        </div>
+      </div>
+
+      <button id="possible-mark-button" style="width: 100%; margin-top: 24px; padding: 14px 24px; background: linear-gradient(135deg, #ff8c00 0%, #ff7700 100%); color: #fff; border: none; border-radius: 8px; font-weight: 700; font-size: 15px; cursor: pointer; box-shadow: 0 4px 12px rgba(255, 140, 0, 0.3); transition: all 0.3s ease;">
+        POSSIBLE MARK
+      </button>
+   
+  `;
   document.getElementById('possible-mark-button').addEventListener('click', () => {
     let intermal_marl_scored = result_mark.final_result;
     localStorage.setItem('internal_mark', JSON.stringify(intermal_marl_scored));
@@ -245,19 +255,37 @@ function show_special_case_dialog() {
   let exam_only_internal = result_mark.first_10 + result_mark.second_10;
   exam_only_internal = parseFloat(exam_only_internal.toFixed(2));
 
+  // Calculate external marks needed based on special case internal only
+  let external_mark = 91;
+  if (exam_only_internal >= 23) {
+    external_mark = 45;
+  } else {
+    external_mark = (50 - exam_only_internal) * 1.667;
+  }
+  let marks_to_pass = Math.floor(external_mark);
+
   document.getElementById('special_case_text').innerHTML = `
-    <div style="background: linear-gradient(135deg, #ffa500 0%, #ff8c00 100%); padding: 20px; border-radius: 8px; color: white; box-shadow: 0 4px 12px rgba(0,0,0,0.15); margin-top: 20px;">
-      <p style="font-weight: bold; font-size: 18px; margin-bottom: 12px;">⚠️ SPECIAL CASE</p>
-      <p style="margin-bottom: 10px; line-height: 1.5;">
-        <strong>No decision has been taken regarding the special case.</strong>
+    <div style="background: linear-gradient(135deg, #ff9800 0%, #ff7700 100%); padding: 32px 28px; border-radius: 12px; color: #000; box-shadow: 0 8px 24px rgba(255, 152, 0, 0.3); margin-top: 20px; text-align: center;">
+      <p style="font-weight: 700; font-size: 22px; margin: 0 0 20px 0; line-height: 1.3;">⚠️ SPECIAL CASE</p>
+      <p style="margin-bottom: 12px; line-height: 1.6; font-size: 15px; font-weight: 500; color: #000;">
+        No decision has been taken regarding the special case.
       </p>
-      <p style="margin-bottom: 10px; line-height: 1.5; font-size: 14px;">
-        As per last year's norms: <strong>No bonus marks will be added.</strong>
+      <p style="margin-bottom: 24px; line-height: 1.6; font-size: 14px; color: #1a1a1a; opacity: 0.9;">
+        As per last year's norms: No bonus marks will be added.
       </p>
-      <p style="margin-bottom: 15px; line-height: 1.5; font-size: 16px; font-weight: bold;">
-        Your Internal Mark (Without Bonus): <span style="font-size: 20px;">${exam_only_internal} / 40</span>
-      </p>
-      <button id="special_case_view_button" style="background-color: white; color: #ff8c00; border: none; padding: 10px 20px; border-radius: 5px; font-weight: bold; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.2); transition: all 0.3s ease;">
+
+      <div style="background: rgba(0,0,0,0.08); border-radius: 8px; padding: 16px 20px; margin-bottom: 20px; text-align: left;">
+        <div style="display: flex; justify-content: space-between; padding: 8px 0;">
+          <span style="font-size: 15px; color: #1a1a1a; font-weight: 500;">Your Internal Mark (Without Bonus):</span>
+          <span style="font-size: 18px; font-weight: 700; color: #000;">${exam_only_internal} / 40</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; padding: 8px 0; border-top: 1px solid rgba(0,0,0,0.1); margin-top: 8px; padding-top: 12px;">
+          <span style="font-size: 15px; color: #1a1a1a; font-weight: 500;">Mark Needed in External Exam:</span>
+          <span style="font-size: 18px; font-weight: 700; color: #000;">${marks_to_pass} / 100</span>
+        </div>
+      </div>
+
+      <button id="special_case_view_button" style="background-color: white; color: #ff8c00; border: none; padding: 14px 32px; border-radius: 8px; font-weight: 700; font-size: 15px; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: all 0.3s ease;">
         VIEW POSSIBLE MARK
       </button>
     </div>

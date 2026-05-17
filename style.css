@@ -1,633 +1,710 @@
 /* Define Root Variables for Light Theme (Default) */
 :root {
-    --primary-bg-color: #121212;
-    --secondary-bg-color: #1f1f1f;
-    --primary-font-color: #e0e0e0;
-    --secondary-font-color: #bbbbbb;
-    --container-bg-color: #1f1f1f;
-    --input-bg-color: #2c2c2c;
-    --input-font-color: #e0e0e0;
-    --button-bg-color: #333333;
-    --button-font-color: #e0e0e0;
-    --highlight-color: #bb86fc;
-    --border-color: #ffffff;
-    --shadow-color: rgba(0, 0, 0, 0.7);
-    --light-green: lightgreen;
-    --tomato: tomato;
-    --theme-font:white;
-    --text-shadow-color:white;
-    --slider-color:#e8e8e8;
-    --tick-color:var(--light-green);
-    --radio-size: 20px;
+  --primary-bg-color: #0f0f0f;
+  --secondary-bg-color: #1a1a1a;
+  --primary-font-color: #ffffff;
+  --secondary-font-color: #a0a0a0;
+  --container-bg-color: #1a1a1a;
+  --input-bg-color: #2c2c2c;
+  --input-font-color: #ffffff;
+  --button-bg-color: #ff8c00;
+  --button-font-color: #ffffff;
+  --highlight-color: #ff8c00;
+  --border-color: #2d2d2d;
+  --shadow-color: rgba(0, 0, 0, 0.4);
+  --light-green: lightgreen;
+  --tomato: tomato;
+  --theme-font: white;
+  --text-shadow-color: white;
+  --slider-color: #e8e8e8;
+  --tick-color: var(--light-green);
+  --radio-size: 20px;
+  --orange-accent: #ff8c00;
+  --orange-accent-light: #ff7700;
+  --card-bg: #1a1a1a;
+  --card-border: #2d2d2d;
 }
 
 /* Define Root Variables for white Theme */
 [data-theme='light'] {
-    --primary-bg-color: #f5f5f5;
-    --secondary-bg-color: #ffffff;
-    --primary-font-color: #121212;
-    --secondary-font-color: #444444;
-    --container-bg-color: #f7f7f7;
-    --input-bg-color: #ffffff;
-    --input-font-color: #121212;
-    --button-bg-color: #007BFF;
-    --button-font-color: #ffffff;
-    --highlight-color: #ea00ea;
-    --border-color: #000000;
-    --shadow-color: rgba(0, 0, 0, 0.3);
-    --light-green: green;
-    --theme-font:black;
-    --tomato: rgb(255, 0, 0);
-    --text-shadow-color:black;
-    --slider-color:#e8e8e8;
-    --tick-color:var(--tomato);
-    --radio-size: 20px;
+  --primary-bg-color: #f5f5f5;
+  --secondary-bg-color: #ffffff;
+  --primary-font-color: #121212;
+  --secondary-font-color: #666666;
+  --container-bg-color: #f7f7f7;
+  --input-bg-color: #ffffff;
+  --input-font-color: #121212;
+  --button-bg-color: #ff8c00;
+  --button-font-color: #ffffff;
+  --highlight-color: #ff8c00;
+  --border-color: #e0e0e0;
+  --shadow-color: rgba(0, 0, 0, 0.15);
+  --light-green: green;
+  --theme-font: black;
+  --tomato: rgb(255, 0, 0);
+  --text-shadow-color: black;
+  --slider-color: #e8e8e8;
+  --tick-color: var(--tomato);
+  --radio-size: 20px;
+  --orange-accent: #ff8c00;
+  --orange-accent-light: #ff7700;
+  --card-bg: #ffffff;
+  --card-border: #e0e0e0;
 }
 
 /* General Styles */
 * {
-    padding: 0;
-    margin: 0;
-    font-family: "Poppins", sans-serif;
-    text-transform: uppercase;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  text-transform: uppercase;
+  box-sizing: border-box;
 }
 
 /* Body */
 body {
-    background-color: var(--primary-bg-color);
-    color: var(--primary-font-color);
-    transition: background-color 0.3s, color 0.3s;
+  background-color: var(--primary-bg-color);
+  color: var(--primary-font-color);
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+  font-size: 16px;
 }
 
 /* Header */
 .header {
-    font-size: 2rem;
-    padding-bottom: 0;
-    font-weight: bold;
-    color: var(--primary-font-color);
+  font-size: 2.5rem;
+  padding-bottom: 0;
+  font-weight: 800;
+  color: var(--primary-font-color);
+}
+
+@media (max-width: 768px) {
+  .header {
+    font-size: 1.8rem;
+  }
+
+  body {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    font-size: 1.4rem;
+  }
+
+  body {
+    font-size: 13px;
+  }
 }
 
 /* Container */
 .container {
-    position: relative;
-    padding: 10px;
-    background-color: var(--container-bg-color);
-    transition: background-color 0.3s;
+  position: relative;
+  padding: 10px;
+  background-color: var(--container-bg-color);
+  transition: background-color 0.3s;
 }
 
 /* Theme Selection Container */
 .theme-toggle-container {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 /* Toggle Switch Container */
 .switch {
-    font-size: 17px;
-    position: relative;
-    display: inline-block;
-    width: 64px;
-    height: 34px;
+  font-size: 17px;
+  position: relative;
+  display: inline-block;
+  width: 64px;
+  height: 34px;
 }
 
 .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
+  opacity: 0;
+  width: 0;
+  height: 0;
 }
 
 .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #73C0FC;
-    transition: .4s;
-    border-radius: 30px;
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #73c0fc;
+  transition: 0.4s;
+  border-radius: 30px;
 }
 
 .slider:before {
-    position: absolute;
-    content: "";
-    height: 30px;
-    width: 30px;
-    border-radius: 20px;
-    left: 2px;
-    bottom: 2px;
-    z-index: 2;
-    background-color: var(--slider-color);
-    transition: .4s;
+  position: absolute;
+  content: '';
+  height: 30px;
+  width: 30px;
+  border-radius: 20px;
+  left: 2px;
+  bottom: 2px;
+  z-index: 2;
+  background-color: var(--slider-color);
+  transition: 0.4s;
 }
 
 .sun svg {
-    position: absolute;
-    top: 6px;
-    left: 36px;
-    z-index: 1;
-    width: 24px;
-    height: 24px;
+  position: absolute;
+  top: 6px;
+  left: 36px;
+  z-index: 1;
+  width: 24px;
+  height: 24px;
 }
 
 .moon svg {
-    fill: #73C0FC;
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    z-index: 1;
-    width: 24px;
-    height: 24px;
+  fill: #73c0fc;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  z-index: 1;
+  width: 24px;
+  height: 24px;
 }
 
 .input:checked + .slider {
-    background-color: #183153;
+  background-color: #183153;
 }
 
 .input:checked + .slider:before {
-    transform: translateX(30px);
+  transform: translateX(30px);
 }
 
 /* Sun and Moon Animation */
 .sun svg {
-    animation: rotate 15s linear infinite;
+  animation: rotate 15s linear infinite;
 }
 
 @keyframes rotate {
-    0% {
-        transform: rotate(0);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .moon svg {
-    animation: tilt 5s linear infinite;
+  animation: tilt 5s linear infinite;
 }
 
 @keyframes tilt {
-    0% {
-        transform: rotate(0deg);
-    }
-    25% {
-        transform: rotate(-35deg);
-    }
-    75% {
-        transform: rotate(35deg);
-    }
-    100% {
-        transform: rotate(0deg);
-    }
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-35deg);
+  }
+  75% {
+    transform: rotate(35deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
 
 /* Popup Message Box */
 .pop_up_message_box {
-    position: absolute;
-    top: 40%;
-    left: 32%;
-    z-index: 999;
-    background-color: var(--secondary-bg-color);
-    width: 500px;
-    padding: 20px;
-    font-size: 1.5rem;
-    border-radius: 20px;
-    border: 1px solid var(--border-color);
-    color: var(--primary-font-color);
-    font-weight: 500;
-    border: solid 1px;
+  position: absolute;
+  top: 40%;
+  left: 32%;
+  z-index: 999;
+  background: linear-gradient(135deg, #ff9800 0%, #ff7700 100%);
+  width: 500px;
+  padding: 32px;
+  font-size: 1rem;
+  border-radius: 12px;
+  border: none;
+  color: #000;
+  font-weight: 500;
+  box-shadow: 0 8px 32px rgba(255, 152, 0, 0.4);
 }
-@media (max-width: 768px){
-    .pop_up_message_box{
-        left:0%;
-        padding:20px;
-        font-size: 1rem;
-    }
+@media (max-width: 768px) {
+  .pop_up_message_box {
+    left: 0%;
+    padding: 20px;
+    font-size: 0.9rem;
+    width: 90%;
+  }
 }
 
 .pop_up_message_box p {
-    margin: 0;
+  margin: 0;
+  line-height: 1.6;
+  color: #000;
 }
 
 .pop_up_message_box span {
-    color: var(--highlight-color);
-    font-weight: bold;
+  color: #000;
+  font-weight: 700;
 }
 
 .pop_up_message_box button {
-    background-color: var(--button-bg-color);
-    color: var(--button-font-color);
-    padding: 10px 20px;
-    border: 1px solid var(--border-color);
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 10px;
-    box-shadow: 0 6px 8px var(--shadow-color);
-    transition: box-shadow 0.5s, transform 0.5s;
+  background-color: white;
+  color: #ff8c00;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  font-weight: 700;
 }
 
 .pop_up_message_box button:hover {
-    box-shadow: 0 8px 10px var(--shadow-color);
-    transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
 }
 
 .pop_up_message_box:active {
-    box-shadow: 0 2px 4px var(--shadow-color);
-    transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transform: translateY(0);
 }
 
-.nptel_pop_up_message{
-    top:40%;
-    visibility: hidden;
-    z-index: 999;
+.nptel_pop_up_message {
+  top: 40%;
+  visibility: hidden;
+  z-index: 999;
 }
 
 /* Sub-Container */
 .sub-container {
-    background-color: var(--secondary-bg-color);
-    border-radius: 10px;
-    border: 2px solid var(--border-color);
-    box-shadow: 0 4px 12px var(--shadow-color);
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 8px 24px var(--shadow-color);
+  transition: all 0.3s ease;
 }
 
 .sub-container .row {
-    padding: 10px;
+  padding: 12px;
 }
 
 .sub_header {
-    font-size: 1.5rem;
-    padding-bottom: 10px;
-    color: var(--primary-font-color);
+  font-size: 1.5rem;
+  padding-bottom: 10px;
+  color: var(--primary-font-color);
+  font-weight: 700;
 }
 
 .with_with_out_bonus_container {
-    font-size: 1.2rem;
-    padding-top: 0;
-    color: var(--primary-font-color);
+  font-size: 1.1rem;
+  padding-top: 16px;
+  color: var(--primary-font-color);
+  font-weight: 600;
 }
 
 .mark_container,
 .extra_activity_container {
-    padding: 10px;
-    font-size: 1.3rem;
-    color: var(--primary-font-color);
-    margin: 10px;
+  padding: 20px;
+  font-size: 1.1rem;
+  color: var(--primary-font-color);
+  margin: 16px 0;
+  background-color: var(--container-bg-color);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
 }
 
 /* Input Box */
 .input_box {
-    width: 100%;
-    border-radius: 5px;
-    padding: 0.5px;
-    text-align: center;
-    background-color: var(--input-bg-color);
-    color: var(--input-font-color);
-    font-family: "New Amsterdam";
-    font-size: 1.5rem;
+  width: 100%;
+  border-radius: 8px;
+  padding: 12px;
+  text-align: center;
+  background-color: var(--input-bg-color);
+  color: var(--input-font-color);
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.input_box:focus {
+  outline: none;
+  border-color: var(--orange-accent);
+  box-shadow: 0 0 12px rgba(255, 140, 0, 0.3);
 }
 
 /* Calculate Button */
 #calculate_button,
 #possible-mark-button {
-    width: 150px;
-    font-weight: bold;
-    padding: 1%;
-    background-color: var(--button-bg-color);
-    color: var(--button-font-color);
-    border: 1px solid var(--border-color);
-    border-radius: 3px;
-    cursor: pointer;
-    font-size: 1rem;
-    text-align: center;
+  width: 100%;
+  max-width: 300px;
+  font-weight: 700;
+  padding: 14px 32px;
+  background: linear-gradient(135deg, var(--orange-accent) 0%, var(--orange-accent-light) 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(255, 140, 0, 0.3);
+  transition: all 0.3s ease;
 }
 
 /* Result Mark Container */
 .result-mark-container {
-    background-color: var(--secondary-bg-color);
-    border: 1px solid var(--border-color);
-    padding: 10px;
-    border-radius: 10px;
-    visibility: hidden;
-    box-shadow: 0 4px 12px var(--shadow-color);
+  background-color: var(--card-bg);
+  border: none;
+  padding: 28px;
+  border-radius: 12px;
+  visibility: hidden;
+  box-shadow: 0 8px 24px var(--shadow-color);
+  transition: all 0.3s ease;
 }
 
 .result-mark-header {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: var(--primary-font-color);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--primary-font-color);
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.result-mark-container .row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.result-mark-container .row .col {
+  flex: 1;
 }
 
 .result-mark-container .row .col p {
-    font-size: 1.2rem;
-    text-align: left;
-    font-weight: 500;
-    color: var(--primary-font-color);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--secondary-font-color);
+  margin: 0;
+}
+
+.result-mark-container .row .col:last-child p {
+  text-align: right;
+  color: var(--primary-font-color);
+  font-size: 1.2rem;
+  font-weight: 700;
 }
 
 /* Button & Input Hover Effects */
 input,
 button {
-    box-shadow: 0 6px 8px var(--shadow-color);
-    transition: box-shadow 0.5s, transform 0.5s;
-    font-family: "New Amsterdam";
-    font-weight: 500;
-    padding: 10px;
-    border: solid 1px var(--border-color);
+  box-shadow: 0 4px 12px var(--shadow-color);
+  transition: all 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
 }
 
-input::placeholder{
-    color: var(--input-font-color);
+input::placeholder {
+  color: var(--secondary-font-color);
 }
 
 input:hover,
 button:hover {
-    box-shadow: 0 8px 10px var(--shadow-color);
-    transform: translateY(-2px);
+  box-shadow: 0 6px 16px var(--shadow-color);
+  transform: translateY(-2px);
 }
 
 input:focus:valid {
-    color: var(--light-green);
-    box-shadow: 0 0 15px var(--light-green);
+  color: var(--light-green);
+  box-shadow: 0 0 15px rgba(144, 238, 144, 0.3);
 }
 
 input:focus:invalid {
-    color: var(--tomato);
-    box-shadow: 0 0 15px var(--tomato);
+  color: var(--tomato);
+  box-shadow: 0 0 15px rgba(255, 99, 71, 0.3);
 }
 
 input:invalid {
-    color: var(--tomato);
-    border-color: var(--tomato);
-    box-shadow: 0 0 15px var(--tomato);
+  color: var(--tomato);
+  border-color: var(--tomato);
+  box-shadow: 0 0 15px rgba(255, 99, 71, 0.2);
 }
 
 /* Checked Radio Box */
 .radio-input {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 40px;
 }
 
 .radio-input input {
-    appearance: none;
-    width: var(--radio-size);
-    height: var(--radio-size);
-    background-color: var(--container-bg-color);
-    border: 2px solid #ccc;
-    box-shadow: inset 2px 2px 5px var(--input-bg-color);
-    border-radius: 50%;
-    transition: all 0.3s ease;
-    position: absolute;
-    cursor: pointer;
-    margin: 0;
+  appearance: none;
+  width: var(--radio-size);
+  height: var(--radio-size);
+  background-color: var(--input-bg-color);
+  border: 2px solid var(--border-color);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  position: absolute;
+  cursor: pointer;
+  margin: 0;
 }
 
 .radio-input input:hover {
-    border-color: green;
+  border-color: var(--orange-accent);
+  box-shadow: 0 0 8px rgba(255, 140, 0, 0.2);
 }
 
 .radio-input input:checked {
-    border-color: green;
-    box-shadow: none;
-    background-color: lightgreen;
-}
-
-/* Radio button indicator (no tick) */
-.radio-input input:checked {
-    border: 2px solid green;
+  border-color: var(--orange-accent);
+  background: linear-gradient(135deg, var(--orange-accent) 0%, var(--orange-accent-light) 100%);
+  box-shadow: 0 0 12px rgba(255, 140, 0, 0.3);
 }
 
 .radio-input input:checked::after {
-    content: "";
-    position: absolute;
-    width: calc(var(--radio-size) * 0.6);
-    height: calc(var(--radio-size) * 0.6);  
-    
-    border-radius: 50%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transition: all 0.2s ease;
+  content: '';
+  position: absolute;
+  width: calc(var(--radio-size) * 0.6);
+  height: calc(var(--radio-size) * 0.6);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.2s ease;
 }
 
-/* Hide the original plus elements since we're not using them */
 .radio-input .plus1,
 .radio-input .plus2 {
-    display: none;
+  display: none;
 }
 
 * {
-    text-transform: capitalize;
+  text-transform: capitalize;
 }
 
 /* Vibration Animation */
 @keyframes smoothVibrate {
-    0% {
-        transform: translate(0);
-    }
+  0% {
+    transform: translate(0);
+  }
 
-    10% {
-        transform: translate(-5px, 5px);
-    }
+  10% {
+    transform: translate(-5px, 5px);
+  }
 
-    20% {
-        transform: translate(5px, -5px);
-    }
+  20% {
+    transform: translate(5px, -5px);
+  }
 
-    30% {
-        transform: translate(-10px, 10px);
-    }
+  30% {
+    transform: translate(-10px, 10px);
+  }
 
-    40% {
-        transform: translate(10px, -10px);
-    }
+  40% {
+    transform: translate(10px, -10px);
+  }
 
-    50% {
-        transform: translate(-15px, 15px);
-    }
+  50% {
+    transform: translate(-15px, 15px);
+  }
 
-    60% {
-        transform: translate(15px, -15px);
-    }
+  60% {
+    transform: translate(15px, -15px);
+  }
 
-    70% {
-        transform: translate(-10px, 10px);
-    }
+  70% {
+    transform: translate(-10px, 10px);
+  }
 
-    80% {
-        transform: translate(10px, -10px);
-    }
+  80% {
+    transform: translate(10px, -10px);
+  }
 
-    90% {
-        transform: translate(-5px, 5px);
-    }
+  90% {
+    transform: translate(-5px, 5px);
+  }
 
-    100% {
-        transform: translate(0);
-    }
+  100% {
+    transform: translate(0);
+  }
 }
 
 .vibrate {
-    animation: smoothVibrate 1s ease infinite;
+  animation: smoothVibrate 1s ease infinite;
 }
 
 /* Celebration Animation */
 #congrs-lottie-animation {
-    visibility: hidden;
+  visibility: hidden;
 }
 
 .lottie_container {
-    background-color: transparent;
-    position: absolute;
-    z-index: 998;
-    top: 0;
-    left: 0;
+  background-color: transparent;
+  position: absolute;
+  z-index: 998;
+  top: 0;
+  left: 0;
 }
 
 .add_width_pc {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .add_width_mobile {
-    width: 100vh;
-    height: 100vh;
-    left: -50%;
+  width: 100vh;
+  height: 100vh;
+  left: -50%;
 }
 
 /*heart animation*/
-.heart{
-    animation: heart-animation 5s ease infinite;
+.heart {
+  animation: heart-animation 5s ease infinite;
 }
 
-@keyframes heart-animation{
-    0%{
-        font-size: 1.25rem;
-    }
-    25%{
-        font-size: 1.5rem;
-    }
-    50%{
-        font-size: 1.25rem;
-    }
-    75%{
-        font-size: 1.5rem;
-    }
-    100%{
-        font-size: 1.25rem;
-    }
+@keyframes heart-animation {
+  0% {
+    font-size: 1.25rem;
+  }
+  25% {
+    font-size: 1.5rem;
+  }
+  50% {
+    font-size: 1.25rem;
+  }
+  75% {
+    font-size: 1.5rem;
+  }
+  100% {
+    font-size: 1.25rem;
+  }
 }
 
 /* Heart pulse animation */
 .heart-pulse {
-    animation: pulse-heart 1.5s ease-in-out infinite;
-    display: inline-block;
-    cursor: pointer;
-    transition: all 0.5s ease;
+  animation: pulse-heart 1.5s ease-in-out infinite;
+  display: inline-block;
+  cursor: pointer;
+  transition: all 0.5s ease;
 }
 
 @keyframes pulse-heart {
-    0% {
-        transform: scale(1);
-        color: #ff4757;
-        text-shadow: 0 0 5px rgba(255, 71, 87, 0.3);
-    }
-    50% {
-        transform: scale(1.3);
-        color: #ff3742;
-        text-shadow: 0 0 15px rgba(255, 71, 87, 0.8), 0 0 25px rgba(255, 71, 87, 0.6);
-    }
-    100% {
-        transform: scale(1);
-        color: #ff4757;
-        text-shadow: 0 0 5px rgba(255, 71, 87, 0.3);
-    }
+  0% {
+    transform: scale(1);
+    color: #ff4757;
+    text-shadow: 0 0 5px rgba(255, 71, 87, 0.3);
+  }
+  50% {
+    transform: scale(1.3);
+    color: #ff3742;
+    text-shadow:
+      0 0 15px rgba(255, 71, 87, 0.8),
+      0 0 25px rgba(255, 71, 87, 0.6);
+  }
+  100% {
+    transform: scale(1);
+    color: #ff4757;
+    text-shadow: 0 0 5px rgba(255, 71, 87, 0.3);
+  }
 }
 
 /* Creator link styling */
 .creator-link {
-    color: var(--primary-font-color);
-    text-decoration: none;
-    transition: all 0.3s ease;
-    cursor: pointer;
+  color: var(--primary-font-color);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .creator-link:hover {
-    color: var(--highlight-color);
-    text-decoration: underline;
-    transform: scale(1.05);
+  color: var(--highlight-color);
+  text-decoration: underline;
+  transform: scale(1.05);
 }
 
 .creator-link:visited {
-    color: var(--primary-font-color);
+  color: var(--primary-font-color);
 }
 
 .creator-link:active {
-    color: var(--highlight-color);
+  color: var(--highlight-color);
 }
 
 /* Responsive Styling for Mobile */
 @media (max-width: 768px) {
-    .pop_up_message_box {
-        width: 350px;
-        font-size: 1.2rem;
-        left: 1%;
-    }
-    .mark_container{
-        font-size: 1.2rem;
-    }
-    .col-3 p{
-        margin: 0;
-    }
-    .radio-input {
-        justify-content: flex-end;            
-        padding-right: 15px;    
-    }
-    :root {
-        --radio-size: 18px;
-    }
-    :root {
-        --radio-size: 18px;
-    }
+  .pop_up_message_box {
+    width: 350px;
+    font-size: 1.2rem;
+    left: 1%;
+  }
+  .mark_container {
+    font-size: 1.2rem;
+  }
+  .col-3 p {
+    margin: 0;
+  }
+  .radio-input {
+    justify-content: flex-end;
+    padding-right: 15px;
+  }
+  :root {
+    --radio-size: 18px;
+  }
+  :root {
+    --radio-size: 18px;
+  }
 }
 
 /* Custom Radio Button Styles */
 .custom-radio-group {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-    color: var(--primary-font-color);
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  color: var(--primary-font-color);
 }
-/* font-size: 0.9rem; padding: 0.4rem 1rem; font-weight: 500; */
 
 .custom-radio-label {
-    cursor: pointer;
-    padding: 0.4rem 1rem;
-    border: 2px solid var(--highlight-color);
-    border-radius: 25px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    transition: all 0.1s ease;
-    user-select: none;
-    color: var(--primary-font-color);
+  cursor: pointer;
+  padding: 10px 24px;
+  border: 2px solid var(--orange-accent);
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  user-select: none;
+  color: var(--orange-accent);
+  background-color: transparent;
 }
 
 .custom-radio-input {
-    display: none;
+  display: none;
 }
 
 .custom-radio-input:checked + .custom-radio-label {
-    background-color: var(--highlight-color);
-    color: white !important;
-    box-shadow: 0 4px 8px var(--shadow-color);
+  background: linear-gradient(135deg, var(--orange-accent) 0%, var(--orange-accent-light) 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(255, 140, 0, 0.3);
+  border-color: var(--orange-accent);
 }
 
 .max-mark-text {
-    color: var(--highlight-color);
-    font-size: 1rem;
-    font-weight: bold;
+  color: var(--orange-accent);
+  font-size: 1rem;
+  font-weight: 700;
 }
+
+/* ===== COMPREHENSIVE RESPONSIVE MEDIA QUERIES ===== */
+
+/* Tablet & Medium Screens (768px and below) */
