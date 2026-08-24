@@ -89,7 +89,25 @@ function sendAnalyticsRequest() {
     }
   );
 }
-window.addEventListener('DOMContentLoaded', sendAnalyticsRequest);
+
+window.addEventListener('DOMContentLoaded', () => {
+  sendAnalyticsRequest();
+  
+  // Handle info modal
+  const infoModal = document.getElementById('info_modal');
+  const infoModalOverlay = document.getElementById('info_modal_overlay');
+  const closeInfoModal = document.getElementById('close_info_modal');
+  
+  if (infoModal && infoModalOverlay && closeInfoModal) {
+    infoModal.style.display = 'block';
+    infoModalOverlay.style.display = 'block';
+    
+    closeInfoModal.addEventListener('click', () => {
+      infoModal.style.display = 'none';
+      infoModalOverlay.style.display = 'none';
+    });
+  }
+});
 
 function celebration_effect() {
   document.getElementById('congrs-lottie-animation').style.visibility = 'visible';

@@ -159,6 +159,18 @@
     </script>
   </head>
   <body style="background-color: var(--container-bg-color)">
+    <!-- Info Modal Overlay -->
+    <div id="info_modal_overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); z-index: 9998; backdrop-filter: blur(4px);"></div>
+    
+    <!-- Info Modal -->
+    <div id="info_modal" class="pop_up_message_box" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 9999; margin: 0; width: 90%; max-width: 500px;">
+      <p style="font-weight: 800; font-size: 1.3rem; margin-bottom: 12px; text-transform: uppercase;">⚠️ Important Notice</p>
+      <p style="font-weight: 500; font-size: 0.95rem; margin-bottom: 20px; text-transform: none;">
+        Please note that the college has not currently finalized a specific method for calculating internal marks. As a result, the calculations provided by this website may not be 100% accurate. The current results are based on the methodology used in the previous semester.
+      </p>
+      <button id="close_info_modal" style="width: 100%;">I Understand</button>
+    </div>
+
     <div class="container text-center">
       <p class="header">INTERNAL MARK CALCULATOR<br /></p>
       <div class="container sub-container col-12 col-md-6">
