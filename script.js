@@ -472,3 +472,13 @@ themeToggle.addEventListener('change', toggleTheme);
 
 // Initialize the theme on page load
 toggleTheme();
+
+// Hide the Android app promo on iPhone/iPad (the app is Android-only);
+// everything else (Android, laptops/desktops) sees it
+const isIOS =
+  /iPhone|iPad|iPod/i.test(navigator.userAgent) ||
+  (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+if (isIOS) {
+  const promo = document.getElementById('gpa_app_promo');
+  if (promo) promo.style.display = 'none';
+}

@@ -366,6 +366,11 @@ body {
   transition: all 0.3s ease;
 }
 
+/* No empty gap before a calculation has been made */
+.result-mark-container:empty {
+  display: none;
+}
+
 .result-mark-header {
   font-size: 1.3rem;
   font-weight: 700;
@@ -703,4 +708,56 @@ input:invalid {
   color: var(--orange-accent);
   font-size: 1rem;
   font-weight: 700;
+}
+
+/* GPA / CGPA app promo box */
+.app-promo-box {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 18px 0 8px;
+  padding: 12px 16px;
+  background: var(--card-bg);
+  border: 1px solid var(--orange-accent);
+  border-radius: 12px;
+  color: var(--primary-font-color);
+  text-decoration: none;
+  box-shadow: 0 2px 10px var(--shadow-color);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.app-promo-box:hover {
+  transform: translateY(-2px);
+  color: var(--primary-font-color);
+  box-shadow: 0 4px 16px var(--shadow-color);
+}
+
+.app-promo-logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.app-promo-text {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.app-promo-title {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.app-promo-sub {
+  font-size: 0.85rem;
+  color: var(--secondary-font-color);
+}
+
+.app-promo-arrow {
+  font-size: 1.5rem;
+  color: var(--orange-accent);
 }
